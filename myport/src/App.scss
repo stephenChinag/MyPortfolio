@@ -1,0 +1,26 @@
+/*
+nyde : #d8cfae
+ash:#827c7a
+ash2:#85827b
+oil brown :#5b4a3a 
+darkbrown :#231c18  
+*/
+*,
+*::after,
+*::before {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: inherit;
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	font-family: sans-serif;
+	font-weight: 400;
+	/*font-size: 16px;*/
+	line-height: 1.7;
+	color: #231c18;
+	padding: 3rem;
+	box-sizing: border-box;
+}
