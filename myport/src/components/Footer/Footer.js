@@ -43,16 +43,16 @@ const Footer = () => {
 					<p className="footers__copyright">
 						Built by
 						<a href="/" alt="stephen" className="footers__link">
-							StephenChinag
+							&nbsp; StephenChinag &nbsp;
 						</a>
 						for his online resume
 						<a href="/" alt="react" className="footers__link">
-							React Js and Sass
+							&nbsp; React Js and Sass &nbsp;
 						</a>
-						.Copyright &copy; by Stephen Chinagorom. you are 100% allowed to use
-						this webpage for both personal and and comercial use but NOT to
-						claim is as you own design. A credit to the original author, Stephen
-						Chinagorom
+						.Copyright &copy; by &nbsp; Stephen Chinagorom. you are 100% allowed
+						to use this webpage for both personal and and comercial use but NOT
+						to claim is as you own design. A credit to the original author,
+						Stephen Chinagorom
 					</p>
 				</div>
 			</div>
