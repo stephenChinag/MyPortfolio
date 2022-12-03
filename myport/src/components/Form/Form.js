@@ -22,6 +22,8 @@ const Form = () => {
 	const emailChangeHandler = (e) => {
 		setEmail(e.target.value);
 	};
+
+	const onClickChange = () => {};
 	return (
 		<section className="section-book">
 			<div className="roow">
@@ -99,7 +101,9 @@ const Form = () => {
 								</label>
 							</div>
 							<div className="form_group">
-								<button className="subbtn">Submit &rarr;</button>
+								<button className="subbtn" onClick={onClickChange}>
+									Submit &rarr;
+								</button>
 							</div>
 						</form>
 					</div>

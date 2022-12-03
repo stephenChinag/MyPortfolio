@@ -1,3 +1,5 @@
+import "./Navigation.scss";
+
 const Navigation = () => {
 	return (
 		<div className="navigation">
@@ -7,14 +9,14 @@ const Navigation = () => {
 				className="navigation__checkbox"
 			/>
 			<label htmlFor="navi-toggle" className="navigation__button">
-				Menu
+				<span className="navigation__icon"> &nbsp;</span>
 			</label>
 			<div className="navigation__background">&nbsp;</div>
 			<nav className="navigation__nav">
 				<ul className="navigation__list">
 					<li className="navigation__item">
 						<a className="navigation__link" href="/">
-							About Stephen
+							About
 						</a>
 					</li>
 					<li className="navigation__item">
@@ -30,6 +32,11 @@ const Navigation = () => {
 					<li className="navigation__item">
 						<a className="navigation__link" href="/">
 							Book now
+						</a>
+					</li>
+					<li className="navigation__item">
+						<a className="navigation__link" href="/">
+							download Resume
 						</a>
 					</li>
 				</ul>

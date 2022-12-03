@@ -4,7 +4,7 @@ const Button = (props) => {
 	return (
 		<div>
 			<a href="/" className="btn btn-white btn-animated">
-				Hire Me
+				{props.title}
 			</a>
 		</div>
 	);

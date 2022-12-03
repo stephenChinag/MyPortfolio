@@ -2,7 +2,7 @@ import "./Header.scss";
 import logoWhite from "./asset/logo-white.png";
 import Button from "./Button";
 
-const Header = () => {
+const Header = (props) => {
 	return (
 		<header className="header">
 			<div className="logo-box">
