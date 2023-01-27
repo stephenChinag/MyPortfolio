@@ -17,7 +17,7 @@ $color-in-between: #5b4a3a;
 			rgba(white, 0.9) 50%,
 			transparent 50%
 		),
-		url(../asset/onePiece.jpg);
+		url(../asset/Img.jpg);
 	background-size: 100%;
 	border-radius: 3px;
 	box-shadow: 0 1.5rem 4rem rgba($color-primary-brown, 1);
@@ -73,54 +73,15 @@ $color-in-between: #5b4a3a;
 		visibility: hidden;
 		transform: translateY(-4rem);
 	}
-	&__radio-group {
-		width: 49%;
-		display: inline-block;
-	}
-	&__radio-input {
-		display: none;
-	}
-	&__radio-label {
-		font-size: 1.6rem;
-		cursor: pointer;
-		position: relative;
-		padding-left: 4rem;
-	}
-	&__radio-button {
-		height: 3rem;
-		width: 3rem;
-		border: 5px solid $color-in-between;
-		border-radius: 50%;
-		display: inline-block;
-		position: absolute;
-		left: 0;
-		top: -0.4rem;
-
-		&::after {
-			content: "";
-			display: block;
-			height: 1.3rem;
-			width: 1.3rem;
-			border-radius: 50%;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			background-color: #5b4a3a;
-			opacity: 0;
-			transition: opacity 0.2s;
-		}
-	}
-	&__radio-input:checked ~ &__radio-label &__radio-button::after {
-		opacity: 1;
-	}
 }
 .subbtn {
-	margin-top: 2rem;
-	padding: 1rem;
+	margin-top: none;
+	padding: 2rem;
 	border-radius: 50px;
 	background-color: #d8cfae;
 	cursor: pointer;
-	&:hover {
+}
+@media (max-width: 60rem) {
+	.subbtn {
 	}
 }

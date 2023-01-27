@@ -1,7 +1,10 @@
+import Headings from "../componentss/Headings";
+import Header from "../Header/Header";
 import "./feature.scss";
 const Feauture = () => {
 	return (
 		<section className="section-features">
+			<Headings text=" this is my stack" />
 			<div className="roow">
 				<div className="col-1-of-4">
 					<div className=" feature-box">

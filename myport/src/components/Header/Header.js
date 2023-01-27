@@ -1,6 +1,6 @@
 import "./Header.scss";
-import logoWhite from "./asset/logo-white.png";
-import Button from "./Button";
+import logoWhite from "../asset/Rlogo.png";
+import Button from "../Button";
 
 const Header = (props) => {
 	return (
@@ -13,7 +13,9 @@ const Header = (props) => {
 					<span className="heading-primary-main">ONline Resume </span>
 					<span className="heading-primary-sub">Desinged by stephenChinag</span>
 				</h1>
-				<Button />
+				<div className="">
+					<Button href="/" text="hire me" />
+				</div>
 			</div>
 		</header>
 	);

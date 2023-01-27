@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Headings from "../componentss/Headings";
 import "./Form.scss";
 
 const Form = () => {
@@ -30,9 +31,7 @@ const Form = () => {
 				<div className="book">
 					<div className="book__form">
 						<form className="form" onSubmit={submitHandler}>
-							<div className=" u-margin-bottom-8">
-								<h2 className="heading-secondary">Start booking</h2>
-							</div>
+							<Headings text="START BOOKING" />
 							<div className="form__group">
 								<input
 									className="form__input"
@@ -72,34 +71,7 @@ const Form = () => {
 									Note please
 								</label>
 							</div>
-							<div className="form__radio-group">
-								<input
-									className="form__radio-input"
-									type="radio"
-									placeholder="Email Address"
-									id="programmer"
-									name="size"
-									required
-								></input>
-								<label htmlFor="programmer" className="form__radio-label">
-									<span className="form__radio-button"></span>
-									Programmer
-								</label>
-							</div>
-							<div className="form__radio-group">
-								<input
-									className="form__radio-input"
-									type="radio"
-									placeholder="Email Address"
-									id="photographer"
-									name="size"
-									required
-								></input>
-								<label htmlFor="photographer" className="form__radio-label">
-									<span className="form__radio-button"></span>
-									Photographer
-								</label>
-							</div>
+
 							<div className="form_group">
 								<button className="subbtn" onClick={onClickChange}>
 									Submit &rarr;

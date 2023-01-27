@@ -1,15 +1,15 @@
 import "./About.scss";
 import codeShoe from "../asset/codeShoe.jpg";
 import stephenChinag from "../asset/stephen.jpg";
-import imgInsta from "../asset/Img.jpg";
+import manuel from "../asset/Img.jpg";
+import Anchor from "../componentss/anchor";
+import Headings from "../componentss/Headings";
 
-const About = () => {
+const About = (props) => {
 	return (
 		<main>
 			<section className="section-about">
-				<div className="u-center-text u-margin-bottom-8">
-					<h2 className="heading-secondary">Exciting Facts About ME</h2>
-				</div>
+				<Headings text="Exciting Facts About ME" />
 				<div className="roow">
 					<div className="col-1-of-2">
 						<h3 className="heading-tertiary">
@@ -33,12 +33,9 @@ const About = () => {
 							academic history and drive for creative solutions will bring a
 							positive new facet to your team.
 						</p>
-						<a href="/" className="btn-text">
-							my art &rarr;
-						</a>
-						<a href="/" className="btn-text">
-							Github &rarr;
-						</a>
+
+						<Anchor href="/" className="btn-text" text="my art &rarr;" />
+						<Anchor href="/" className="btn-text" text="Github &rarr;" />
 					</div>
 					<div className="col-1-of-2 composition">
 						<div className="composition">
@@ -48,7 +45,7 @@ const About = () => {
 								className="composition__photo composition__photo--p1"
 							/>
 							<img
-								src={imgInsta}
+								src={manuel}
 								alt=""
 								className="composition__photo composition__photo--p2"
 							/>

@@ -11,33 +11,7 @@ $gutter-horizontal: 6rem;
 	margin-top: -20vh;
 	color: $color-primary-brown;
 }
-.u-center-text {
-	text-align: center;
-}
-.u-margin-bottom-8 {
-	margin-bottom: 7rem;
-}
-.heading-secondary {
-	font-size: 3.5rem;
-	text-transform: uppercase;
-	font-weight: 700;
-	display: inline-block;
-	background-image: linear-gradient(
-		to right,
-		$color-primary-brown,
-		$color-primary-nude,
-		$color-in-between
-	);
-	letter-spacing: 0.2rem;
-	transition: all 0.2s;
-	-webkit-background-clip: text;
-	color: transparent;
-	cursor: pointer;
-	&:hover {
-		transform: skewY(2deg) skewX(15deg) scale(1);
-		text-shadow: 0.5rem 1rem 2rem rgba($color-primary-brown, 0.2);
-	}
-}
+
 .heading-tertiary {
 	font-size: 1.5em;
 	font-weight: 700;

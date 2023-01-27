@@ -3,8 +3,12 @@ import "./Button.scss";
 const Button = (props) => {
 	return (
 		<div>
-			<a href="/" className="btn btn-white btn-animated">
-				{props.title}
+			<a
+				href={props.href}
+				className="btn btn-white btn-animated"
+				download={props.download}
+			>
+				{props.text}
 			</a>
 		</div>
 	);

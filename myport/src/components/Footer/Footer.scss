@@ -1,6 +1,7 @@
 $grid-width: 114rem;
 $gutter-vertical: 7rem;
 $gutter-horizontal: 6rem;
+$color-primary-brown: #231c18;
 
 @mixin clearfix {
 	&::after {
@@ -30,7 +31,7 @@ $gutter-horizontal: 6rem;
 	}
 }
 .footers {
-	background-color: rgb(6, 34, 34);
+	background-color: $color-primary-brown;
 	padding: 10rem;
 	color: antiquewhite;
 	font-size: 1.4rem;
