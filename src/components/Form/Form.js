@@ -7,9 +7,26 @@ const Form = () => {
 	const [fullName, setFullName] = useState("");
 	const [email, setEmail] = useState("");
 
-	const submitHandler = (e) => {
+	const submitHandler = async (e) => {
 		e.preventDefault();
-
+		const response = await fetch("https://doobie-resume.onrender.com/email", {
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({
+        note: note,
+        fullName: fullName,
+        email: email,
+      }),
+    });
+    const responseData = await response.json();
+    if (!response.ok) {
+      const error = new Error(responseData.message || "Failed to authenticate");
+      throw error;
+    }
+    console.log(responseData);
 		console.log(fullName);
 		console.log(email);
 		console.log(note);
