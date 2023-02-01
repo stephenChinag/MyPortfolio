@@ -106,11 +106,18 @@ const WorkExperience = () => {
 								Cement Company of Northern nIGERIA
 							</h3>
 							<p>
-								My experience working with algorism tech innovative value was a
-								nice piece whick kept the Good side of m act read for other
-								challenges whick kept the Good side of m act read for other
-								challenges whick kept the Good side of m act read for other
-								challenges
+								<li> Provide technical assistance to computer users </li>{" "}
+								<li>
+									Diagnosed and repaired network malfunctions including file
+									deletion, failed account entry, slow computer speed, and 3rd
+									party software compatibility issues
+								</li>
+								<li>
+									Streamlined the process of troubleshooting and monitoring
+									LAN/WAN activities, leading to an improvement in up-time
+								</li>
+								Provide assistance concerning the use of computer hardware and
+								software
 							</p>
 						</div>
 					</div>
@@ -127,11 +134,6 @@ const WorkExperience = () => {
 						<div className="work__text">
 							<h3 className="heading-tertiary ">Personal Projects </h3>
 							<p>
-								My experience working with algoridm tech innovative value was a
-								nice piece whick kept the Good side of m act read for other
-								challenges whick kept the Good side of m act read for other
-								challenges whick kept the Good side of m act read for other
-								challenges
 								<span className="stack"> INSTAGRAM CLONE</span>
 								<span className="stack"> BANK-lIST APP</span>
 								<span className="stack"> MAPTY</span>

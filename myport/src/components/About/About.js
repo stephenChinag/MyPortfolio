@@ -12,9 +12,7 @@ const About = (props) => {
 				<Headings text="Exciting Facts About ME" />
 				<div className="roow">
 					<div className="col-1-of-2">
-						<h3 className="heading-tertiary">
-							Your going to fall in Love with my Art
-						</h3>
+						<h3 className="heading-tertiary">Career and Objective</h3>
 						<p className="paragraph">
 							To pursue a career in an organization that is goal oriented with
 							prospect for growth, challenges, increased responsibilities as
@@ -34,8 +32,16 @@ const About = (props) => {
 							positive new facet to your team.
 						</p>
 
-						<Anchor href="/" className="btn-text" text="my art &rarr;" />
-						<Anchor href="/" className="btn-text" text="Github &rarr;" />
+						<Anchor
+							href="https://www.instagram.com/black_conceptu_s/?igshid=ZmZhODViOGI%3D"
+							className="btn-text"
+							text="my art &rarr;"
+						/>
+						<Anchor
+							href="https://github.com/stephenChinag"
+							className="btn-text"
+							text="Github &rarr;"
+						/>
 					</div>
 					<div className="col-1-of-2 composition">
 						<div className="composition">

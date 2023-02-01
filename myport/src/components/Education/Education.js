@@ -11,10 +11,16 @@ const Experience = () => {
 					<p className="paragraph">
 						Bsc Computer Science
 						<span>
-							<i className="grade">( Second class upper )</i>
+							<i className="grade">
+								<strong>( Second class upper </strong>{" "}
+							</i>
 						</span>
 					</p>
-					<Anchor href="/" className="btn-text" text="	Alumin &rarr;" />
+					<Anchor
+						href="https://fubk.edu.ng/"
+						className="btn-text"
+						text="	an Alumins Of &rarr;"
+					/>
 				</div>
 				<div className="col-1-of-2 composition">
 					<div className="composition">

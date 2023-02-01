@@ -14,7 +14,11 @@ const Header = (props) => {
 					<span className="heading-primary-main">ONline Resume </span>
 				</h1>
 				<div className="">
-					<Button href="" text="resume" />
+					<Button
+						href="https://drive.google.com/file/d/1FWHF6t-OaK71QlSkXTMbLKdxFhSgclzj/view?usp=sharing"
+						download="resmume"
+						text="resume"
+					/>
 				</div>
 			</div>
 		</header>

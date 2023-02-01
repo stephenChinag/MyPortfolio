@@ -1,5 +1,5 @@
 import "./Footer.scss";
-import logo from "../asset/logo-white.png";
+
 import manuel from "../asset/art.jpg";
 
 const Footer = () => {
@@ -13,27 +13,34 @@ const Footer = () => {
 					<div className="footers__navigation">
 						<ul className="footers__list ">
 							<li className="footers__item">
-								<a href="/" className="footers__link">
-									Contact Me
-								</a>
-							</li>
-							<li className="footers__item">
-								<a href="/" className="footers__link">
+								<a
+									href="https://github.com/stephenChinag"
+									className="footers__link"
+								>
 									gitHub
 								</a>
 							</li>
 							<li className="footers__item">
-								<a href="/" className="footers__link">
+								<a
+									href="https://www.linkedin.com/in/owoamanam-stephen-32053922a/"
+									className="footers__link"
+								>
 									LinkedIn
 								</a>
 							</li>
 							<li className="footers__item">
-								<a href="/" className="footers__link">
-									Facebook
+								<a
+									href="https://twitter.com/Stephenchinagor?t=Ftg1l7E1cKfezsLbIPc9nQ&s=08"
+									className="footers__link"
+								>
+									twitter
 								</a>
 							</li>
 							<li className="footers__item">
-								<a href="/" className="footers__link">
+								<a
+									href="https://www.instagram.com/black_conceptu_s/?igshid=ZmZhODViOGI%3D"
+									className="footers__link"
+								>
 									instagram
 								</a>
 							</li>
@@ -46,13 +53,7 @@ const Footer = () => {
 						<a href="/" alt="stephen" className="footers__link">
 							&nbsp; StephenChinag &nbsp;
 						</a>
-						for his online resume
-						<a href="/" alt="react" className="footers__link">
-							&nbsp; React Js and Sass &nbsp;
-						</a>
-						.Copyright &copy; by &nbsp; Stephen Chinagorom However please not
-						that the images used in this site are 80% art of mine and you can
-						feed you eyes with more of my art in
+						for his online resume &nbsp;<strong> React Js and Sass</strong>{" "}
 					</p>
 				</div>
 			</div>
