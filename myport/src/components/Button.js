@@ -7,6 +7,7 @@ const Button = (props) => {
 				href={props.href}
 				className="btn btn-white btn-animated"
 				download={props.download}
+				onClick={props.onClick}
 			>
 				{props.text}
 			</a>

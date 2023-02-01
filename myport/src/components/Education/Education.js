@@ -10,7 +10,9 @@ const Experience = () => {
 					<h3 className="heading-tertiary">Federal University Birnin Kebbi</h3>
 					<p className="paragraph">
 						Bsc Computer Science
-						<span>Second class upper</span>
+						<span>
+							<i className="grade">( Second class upper )</i>
+						</span>
 					</p>
 					<Anchor href="/" className="btn-text" text="	Alumin &rarr;" />
 				</div>

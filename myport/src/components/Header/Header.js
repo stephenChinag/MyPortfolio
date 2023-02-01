@@ -10,11 +10,11 @@ const Header = (props) => {
 			</div>
 			<div className="header-text-box">
 				<h1 className="heading-primary">
+					<span className="heading-primary-sub">Owoamanam stephen</span>
 					<span className="heading-primary-main">ONline Resume </span>
-					<span className="heading-primary-sub">Desinged by stephenChinag</span>
 				</h1>
 				<div className="">
-					<Button href="/" text="hire me" />
+					<Button href="" text="resume" />
 				</div>
 			</div>
 		</header>

@@ -3,9 +3,9 @@ import work1 from "../asset/reactWork.jpg";
 import work2 from "../asset/images.jpeg";
 import work3 from "../asset/CementCompany.png";
 import work4 from "../asset/dataCenter.png";
-import resume from "../asset/Myresume.pdf";
+
 import Headings from "../componentss/Headings";
-import Button from "../Button";
+
 const WorkExperience = () => {
 	return (
 		<main>
@@ -120,7 +120,9 @@ const WorkExperience = () => {
 						<figure className="work__shape">
 							<img src={work4} alt="algo work" className="work__image" />
 
-							<figcaption className="work__caption"> Divine Favour</figcaption>
+							<figcaption className="work__caption">
+								Personal Project
+							</figcaption>
 						</figure>
 						<div className="work__text">
 							<h3 className="heading-tertiary ">Personal Projects </h3>
@@ -130,12 +132,13 @@ const WorkExperience = () => {
 								challenges whick kept the Good side of m act read for other
 								challenges whick kept the Good side of m act read for other
 								challenges
+								<span className="stack"> INSTAGRAM CLONE</span>
+								<span className="stack"> BANK-lIST APP</span>
+								<span className="stack"> MAPTY</span>
+								<span className="stack"> Router-config</span>
 							</p>
 						</div>
 					</div>
-				</div>
-				<div>
-					<Button href={resume} text="RESUME" download="resume" />
 				</div>
 			</section>
 		</main>
