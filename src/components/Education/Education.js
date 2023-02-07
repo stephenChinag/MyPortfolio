@@ -12,7 +12,7 @@ const Experience = () => {
 						Bsc Computer Science
 						<span>
 							<i className="grade">
-								<strong>( Second class upper </strong>{" "}
+								<strong>( Second class upper) </strong>{" "}
 							</i>
 						</span>
 					</p>
