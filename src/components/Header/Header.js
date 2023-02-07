@@ -10,7 +10,7 @@ const Header = (props) => {
 			</div>
 			<div className="header-text-box">
 				<h1 className="heading-primary">
-					<span className="heading-primary-sub">Owoamanam stephen</span>
+					<span className="heading-primary-sub"> stephen Owoamanam</span>
 					<span className="heading-primary-main">ONline Resume </span>
 				</h1>
 				<div className="">
