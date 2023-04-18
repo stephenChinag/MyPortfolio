@@ -23,13 +23,13 @@ const About = (props) => {
 							Work with me in the best way you would imagine
 						</h3>
 						<p className="paragraph">
-							I have been inspired by the Victory mission for several years and
-							would welcome the opportunity to contribute to continued growth
-							and success as the next Front End Developer. After completing a
-							Bachelor of Computer Science in Computer Science and Programming
-							from Federal University Birnin Kebbi, I am confident that my
-							academic history and drive for creative solutions will bring a
-							positive new facet to your team.
+							“Over the years, I have built up a diverse set of skills, qualities, and experience that are a match for this job description. I have experience in managing lots of varied tasks, collaborating with others as part of a team, and of communicating positively with customers and clients.
+
+ 
+
+I am the type of person who will never shy away from difficult challenges. I am a fast learner which means you won’t have to spend time constantly supervising me, and I will always embrace changes positively to ensure your company stays at the forefront of this industry.
+
+If you hire me, I will take responsibility for my ongoing development and I will act as a positive role model for the business in everything I do!”
 						</p>
 
 						<Anchor
