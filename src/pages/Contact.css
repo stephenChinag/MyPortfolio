@@ -14,9 +14,9 @@
 .footer-left h1 {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  background-image: url('https://t3.ftcdn.net/jpg/05/58/61/32/360_F_558613274_Z1zbjnHZKjpnTvvsjfZzYXk2TIeUl54a.jpg');
+  background-image: url("https://t3.ftcdn.net/jpg/05/58/61/32/360_F_558613274_Z1zbjnHZKjpnTvvsjfZzYXk2TIeUl54a.jpg");
   font-size: 9rem;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   letter-spacing: 0.2rem;
 }
 
@@ -26,7 +26,7 @@
 
 .footer-right h3 {
   font-size: 2.2rem;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   letter-spacing: 0.2rem;
   opacity: 0.8;
 }
@@ -42,7 +42,7 @@
   padding: 0.4rem 1rem;
   border-radius: 100px;
   border: 1px solid black;
-  font-family: 'Orbit', sans-serif;
+  font-family: "Orbit", sans-serif;
 }
 
 hr {
@@ -57,7 +57,7 @@ h3 span {
 }
 
 h3 span a {
-  font-family: 'Indie Flower', sans-serif;
+  font-family: "Indie Flower", sans-serif;
   position: relative;
 }
 

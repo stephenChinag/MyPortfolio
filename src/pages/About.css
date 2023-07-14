@@ -58,7 +58,7 @@
   text-transform: lowercase;
   border-radius: 50px;
   margin: 0;
-  font-family: 'Orbit', sans-serif;
+  font-family: "Orbit", sans-serif;
 }
 
 @media only screen and (min-width: 900px) and (max-width: 1440px) {
@@ -101,7 +101,7 @@
     text-transform: lowercase;
     border-radius: 50px;
     margin: 0;
-    font-family: 'Orbit', sans-serif;
+    font-family: "Orbit", sans-serif;
   }
 }
 
@@ -164,6 +164,6 @@
     text-transform: lowercase;
     border-radius: 50px;
     margin: 0;
-    font-family: 'Orbit', sans-serif;
+    font-family: "Orbit", sans-serif;
   }
 }

@@ -35,7 +35,7 @@
   font-size: 5rem;
   color: white;
   margin: 0;
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   overflow: hidden;
 }
 
@@ -43,7 +43,7 @@
   font-size: 1.5rem;
   color: #cb450c;
   margin: -1% 0 0 0;
-  font-family: 'Orbit', sans-serif;
+  font-family: "Orbit", sans-serif;
 }
 
 .paragraph {

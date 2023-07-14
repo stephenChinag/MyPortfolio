@@ -1,24 +1,22 @@
-import { Fragment } from "react";
-import "./App.scss";
-import About from "./components/About/About";
-
-import Header from "./components/Header/Header";
-import Education from "./components/Education/Education";
-import WorkExperience from "./components/WorkExperience/WorkExperience";
-import Form from "./components/Form/Form";
-import Footer from "./components/Footer/Footer";
+import "./App.css";
+import NavBar from "./components/NavBar";
+import Hero from "./pages/Hero";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 
 function App() {
-	return (
-		<Fragment>
-			<Header />
-			<About />
-			<Education />
-			<WorkExperience />
-			<Form />
-			<Footer />
-		</Fragment>
-	);
+  return (
+    <div className="App">
+      <NavBar />
+      <div className="home">
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
+      </div>
+    </div>
+  );
 }
 
 export default App;
