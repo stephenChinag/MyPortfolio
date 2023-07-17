@@ -38,7 +38,11 @@ const Hero = () => (
       <img src={Imu} alt="prantosh" className="hero-image" />
     </div>
     <div className="social-icons">
-      <a href="https://github.com/PrantoshB" target="_blank" rel="noreferrer">
+      <a
+        href="https://github.com/StephenChinag"
+        target="_blank"
+        rel="noreferrer"
+      >
         <i className="fa-brands fa-github" />
       </a>
       <a

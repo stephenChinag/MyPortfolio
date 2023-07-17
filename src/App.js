@@ -13,6 +13,7 @@ function App() {
         <Hero />
         <About />
         <Projects />
+        <h1> Dantee</h1>
         <Contact />
       </div>
     </div>

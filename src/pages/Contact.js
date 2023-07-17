@@ -30,7 +30,7 @@ const Contact = () => (
       <h3>
         MINDING A PROJECT?
         <span>
-          <a href="mailto:hello@prantosh.me">cOnTaCt mE</a>
+          <a href="mailto:stephenchinag@gmail.com">cOnTaCt mE</a>
         </span>
       </h3>
 
@@ -39,7 +39,7 @@ const Contact = () => (
       <div className="social">
         <span>
           <a
-            href="https://github.com/PrantoshB"
+            href="https://github.com/stephenChinag"
             target="_blank"
             rel="noreferrer"
           >
