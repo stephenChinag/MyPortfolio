@@ -99,7 +99,7 @@ const About = () => (
         </div>
         <div className="skill">
           <img src={Rails} alt="" />
-          <p>Ruby on Rails</p>
+          <p>Photoshop</p>
         </div>
         <div className="skill">
           <img src={PostGres} alt="" />
@@ -129,7 +129,7 @@ const About = () => (
         </div>
         <div className="skill">
           <img src={RSpecLogo} alt="" />
-          <p>RSpec</p>
+          <p>Bitbucket</p>
         </div>
         <div className="skill">
           <img src={JEST} alt="" />

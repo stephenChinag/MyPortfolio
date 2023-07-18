@@ -7,7 +7,7 @@ const Hero = () => (
   <div className="hero" id="home">
     <div className="hero-overlay">
       <div className="description">
-        <h2 className="title">hELLO. i aM PRANTOSH</h2>
+        <h2 className="title">hELLO. i aM STEPHEN</h2>
         <h3 className="tagline">
           Breaking keyboards and pushing pixels since 2018
         </h3>
@@ -46,7 +46,7 @@ const Hero = () => (
         <i className="fa-brands fa-github" />
       </a>
       <a
-        href="https://www.linkedin.com/in/prantosh"
+        href="https://www.linkedin.com/in/stephen-owoamanam-32053922a/"
         target="_blank"
         rel="noreferrer"
       >

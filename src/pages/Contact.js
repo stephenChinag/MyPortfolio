@@ -16,8 +16,8 @@ const Contact = () => (
         <p>Frontend Development</p>
         <p>React</p>
         <p>Backend Development</p>
-        <p>Ruby on Rails</p>
-        <p>WordPress Development</p>
+        <p> Photography </p>
+        <p>.NET</p>
         <p>Startups</p>
         <p>New Opportunities</p>
         <p>Coffee</p>
@@ -49,7 +49,7 @@ const Contact = () => (
         <span>
           {" "}
           <a
-            href="https://www.linkedin.com/in/prantosh"
+            href="https://www.linkedin.com/in/stephen-owoamanam-32053922a/"
             target="_blank"
             rel="noreferrer"
           >
@@ -59,16 +59,16 @@ const Contact = () => (
         <span>
           {" "}
           <a
-            href="https://wellfound.com/u/prantosh-biswas"
+            href="https://www.instagram.com/black_conceptu_s/?igshid=MzRlODBiNWFlZA%3D%3D"
             target="_blank"
             rel="noreferrer"
           >
-            WELLFOUND
+            My Art
           </a>
         </span>
         <span>
           <a
-            href="https://www.twitter.com/prantalks"
+            href="https://twitter.com/Stephenchinagor"
             target="_blank"
             rel="noreferrer"
           >
