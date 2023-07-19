@@ -21,7 +21,7 @@ const Hero = () => (
         <div className="hero-btns">
           <button className="hire-me">
             <a
-              href="https://drive.google.com/file/d/1RIQlxcFspH89xvugEeEyvgSG_ABMX3rI/view?usp=drive_link"
+              href="https://drive.google.com/file/d/14EJ-T2h_L5Zo8vJxd6IRoNnsltZL_H8d/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
             >

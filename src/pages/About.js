@@ -34,16 +34,16 @@ const About = () => (
     <div className="about-me">
       <h2 className="title about-title">aBOUT mE</h2>
       <p className="paragraph about-para">
-        My journey in the world of programming began in 2018, when I ventured
-        into freelancing. Since then, I have had the opportunity to work on a
-        wide range of projects, honing my skills and expanding my knowledge
-        along the way. I have worked with various clients, both independently
-        and as part of a team, to deliver innovative and user-friendly websites
-        and mobile applications.
+        Combining my frontend developer skills with my passion for photography
+        has opened up exciting opportunities for me. Through innovative website
+        designs and immersive visual experiences, I can effectively showcase my
+        photographic work to a wider audience. Additionally, my technical
+        background allows me to optimize websites for speed and performance
+        while maintaining the integrity of the visual content.
       </p>
       <button className="hire-me">
         <a
-          href="https://drive.google.com/file/d/1RIQlxcFspH89xvugEeEyvgSG_ABMX3rI/view?usp=drive_link"
+          href="https://drive.google.com/file/d/14EJ-T2h_L5Zo8vJxd6IRoNnsltZL_H8d/view?usp=sharing"
           target="_blank"
           rel="noreferrer"
         >
