@@ -3,7 +3,7 @@ import "./About.css";
 import ReduxIcon from "../assets/redux.png";
 import HTML from "../assets/html.png";
 import jQuery from "../assets/jquery.png";
-import Ruby from "../assets/ruby.png";
+import Asp from "../assets/ASP.png";
 import JEST from "../assets/jest.png";
 import Flutter from "../assets/flutter.png";
 import VSCode from "../assets/vscode.png";
@@ -94,8 +94,8 @@ const About = () => (
       <h2 className="skill-title">Back-End</h2>
       <div className="skills">
         <div className="skill">
-          <img src={Ruby} alt="" />
-          <p>Ruby</p>
+          <img src={Asp} alt="" />
+          <p>ASP.NET</p>
         </div>
         <div className="skill">
           <img src={Rails} alt="" />
@@ -106,7 +106,7 @@ const About = () => (
           <p>PostgreSQL</p>
         </div>
       </div>
-      <h2 className="skill-title">Mobile</h2>
+      {/* <h2 className="skill-title">Mobile</h2>
       <div className="skills">
         <div className="skill">
           <img src={ReactIcon} alt="" />
@@ -116,7 +116,7 @@ const About = () => (
           <img src={Flutter} alt="" />
           <p>Flutter</p>
         </div>
-      </div>
+      </div> */}
       <h2 className="skill-title">Tools</h2>
       <div className="skills">
         <div className="skill">
