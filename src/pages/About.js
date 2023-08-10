@@ -3,13 +3,13 @@ import "./About.css";
 import ReduxIcon from "../assets/redux.png";
 import HTML from "../assets/html.png";
 import jQuery from "../assets/jquery.png";
-import Asp from "../assets/ASP.png";
+import Asp from "../assets/asp.png";
 import JEST from "../assets/jest.png";
-import Flutter from "../assets/flutter.png";
+import Node from "../assets/nodejs.png";
 import VSCode from "../assets/vscode.png";
 import Figma from "../assets/figma.png";
 import ReactIcon from "../assets/react.png";
-import RSpecLogo from "../assets/rspec.png";
+import RSpecLogo from "../assets/bitbucket.png";
 import NPMlogo from "../assets/npm.png";
 import GitLogo from "../assets/git.png";
 import GitHublogo from "../assets/github.png";
@@ -19,7 +19,8 @@ import SkypeLogo from "../assets/skype.png";
 import Slack from "../assets/slack.png";
 import WebPack from "../assets/webpack.png";
 import PostGres from "../assets/postgres.png";
-import Rails from "../assets/rails.png";
+// import Rails from "../assets/rails.png";
+import SQL from "../assets/sql.png";
 import Canva from "../assets/canva.png";
 import CDT from "../assets/cdt.png";
 import CSS from "../assets/css.png";
@@ -91,22 +92,27 @@ const About = () => (
           <p>Next.js</p>
         </div>
       </div>
-      <h2 className="skill-title">Back-End</h2>
+      <h2 className="skill-title">Back-End and DataBase</h2>
       <div className="skills">
         <div className="skill">
           <img src={Asp} alt="" />
           <p>ASP.NET</p>
         </div>
         <div className="skill">
-          <img src={Rails} alt="" />
-          <p>Photoshop</p>
+          <img src={Node} alt="" />
+          <p>Node Js</p>
+        </div>
+        <div className="skill">
+          <img src={SQL} alt="" />
+          <p>SQL</p>
         </div>
         <div className="skill">
           <img src={PostGres} alt="" />
           <p>PostgreSQL</p>
         </div>
       </div>
-      {/* <h2 className="skill-title">Mobile</h2>
+
+      {/* /* <h2 className="skill-title">Mobile</h2>
       <div className="skills">
         <div className="skill">
           <img src={ReactIcon} alt="" />
@@ -116,7 +122,7 @@ const About = () => (
           <img src={Flutter} alt="" />
           <p>Flutter</p>
         </div>
-      </div> */}
+</div> */}
       <h2 className="skill-title">Tools</h2>
       <div className="skills">
         <div className="skill">
@@ -156,7 +162,7 @@ const About = () => (
           <p>npm</p>
         </div>
       </div>
-      <h2 className="skill-title">Design</h2>
+      <h2 className="skill-title">Art and Design</h2>
       <div className="skills">
         <div className="skill">
           <img src={Canva} alt="" />
