@@ -19,9 +19,12 @@ import SkypeLogo from "../assets/skype.png";
 import Slack from "../assets/slack.png";
 import WebPack from "../assets/webpack.png";
 import PostGres from "../assets/postgres.png";
+import NoSql from "../assets/nosql.png";
 // import Rails from "../assets/rails.png";
+import LightRoom from "../assets/lightroom.png";
 import SQL from "../assets/sql.png";
 import Canva from "../assets/canva.png";
+import PhotoShop from "../assets/photoshop.png";
 import CDT from "../assets/cdt.png";
 import CSS from "../assets/css.png";
 import BootStrap from "../assets/bootstrap.png";
@@ -35,12 +38,12 @@ const About = () => (
     <div className="about-me">
       <h2 className="title about-title">aBOUT mE</h2>
       <p className="paragraph about-para">
-        Combining my frontend developer skills with my passion for photography
-        has opened up exciting opportunities for me. Through innovative website
-        designs and immersive visual experiences, I can effectively showcase my
-        photographic work to a wider audience. Additionally, my technical
-        background allows me to optimize websites for speed and performance
-        while maintaining the integrity of the visual content.
+        A full stack developer with a passion for photography who combines both
+        technical skills and creative eye to create innovative solutions and
+        capture captivating visuals. By combining the technical skills in
+        front-end and back-end development, database management, and server
+        configuration, that can create dynamic websites and applications that
+        are visually appealing and user-friendly.
       </p>
       <button className="hire-me">
         <a
@@ -110,6 +113,10 @@ const About = () => (
           <img src={PostGres} alt="" />
           <p>PostgreSQL</p>
         </div>
+        <div className="skill">
+          <img src={NoSql} alt="" />
+          <p>NoSQL</p>
+        </div>
       </div>
 
       {/* /* <h2 className="skill-title">Mobile</h2>
@@ -172,6 +179,14 @@ const About = () => (
           <img src={Figma} alt="" />
           <p>Figma</p>
         </div>
+        <div className="skill">
+          <img src={LightRoom} alt="" />
+          <p>LightRoom</p>
+        </div>
+        <div className="skill">
+          <img src={PhotoShop} alt="" />
+          <p>PhotoShop</p>
+        </div>
       </div>
       <h2 className="skill-title">Communication</h2>
       <div className="skills">
@@ -196,9 +211,9 @@ const About = () => (
       <div className="skills">
         <p className="soft-skill">Remote Pair-Programming</p>
         <p className="soft-skill">Communication</p>
-        <p className="soft-skill">Mentoring</p>
+        <p className="soft-skill">Photoraphy</p>
         <p className="soft-skill">Collaboration</p>
-        <p className="soft-skill">Leadership</p>
+        <p className="soft-skill">Art</p>
         <p className="soft-skill">Problem Solving</p>
         <p className="soft-skill">Time Management</p>
         <p className="soft-skill">Decision Making</p>

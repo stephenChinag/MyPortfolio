@@ -9,7 +9,7 @@ const Hero = () => (
       <div className="description">
         <h2 className="title">hELLO. i aM STEPHEN</h2>
         <h3 className="tagline">
-          Breaking keyboards and pushing pixels since 2018
+          Breaking keyboards, Click shutter button and pushing pixels since 2018
         </h3>
         <p className="paragraph">
           I'm passionate about crafting exceptional digital experiences. I bring
@@ -35,7 +35,7 @@ const Hero = () => (
           </button>
         </div>
       </div>
-      <img src={Imu} alt="prantosh" className="hero-image" />
+      <img src={Imu} alt="Dante" className="hero-image" />
     </div>
     <div className="social-icons">
       <a
