@@ -12,10 +12,10 @@ import ProjectCard from "../components/ProjectCard";
 
 const allProjects = [
   {
-    project_name: " WSTC",
+    project_name: " WSTC ADMIN",
     image_url: Wstc,
     description:
-      "Food-On-Rails is a website for managing food inventory and creating/publishing recipes. Ideal for food enthusiasts seeking organization and recipe inspiration. It has a user authentication system with special privileges.",
+      " WSTC Financial Services Limited is an integrated financial services group  providing superior financial services to clients. ",
 
     tech_stack: [
       "JavaScript",
@@ -63,7 +63,7 @@ const allProjects = [
   },
 
   {
-    project_name: "Food on Rails",
+    project_name: "Cubly",
     image_url: Clubly,
     description:
       "Clubly is a secure and free web platform designed to make association and club management easy. It is a digital platform that allows club/association admins or executives to onboard their new or existing association and members, manage finances of the association, communicate and exchange ideas through the forum, set up events and even conduct elections for various roles in the association. It is an all-in-one solution for you and your association.",
@@ -76,7 +76,7 @@ const allProjects = [
       "Reactjs",
       "JQuery",
       "React Bootstrap",
-    ]
+    ],
   },
 
   {
