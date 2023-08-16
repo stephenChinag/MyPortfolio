@@ -5,6 +5,7 @@ import RrealityProx from "../assets/RealtyProx.jpg";
 import TaskProx from "../assets/taskprox.jpg";
 import Wstc from "../assets/wstc.jpg";
 import Clubly from "../assets/clubly.jpg";
+import Food from "../assets/Food with React.jpg";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
 import { fetchProjects } from "../store/ProjectsSlice";
@@ -33,8 +34,7 @@ const allProjects = [
     image_url: RrealityProx,
     description:
       "RealtyProx is a digital real estate platform designed to ease the process of leasing, buying and selling properties. It is an all-in-one platform for tenants, landlords, agents and agencies to carry out their real estate businesses at the comfort of their homes, doing away with all the stress, insecurity and hustle associated with securing and/or managing properties.",
-    source_link: "https://github.com/PrantoshB/HandyMate-Frontend",
-    live_link: "https://deploy--fabulous-horse-dfd6cb.netlify.app/",
+
     tech_stack: [
       "JavaScript",
       "CSS",
@@ -50,8 +50,7 @@ const allProjects = [
     image_url: TaskProx,
     description:
       "TaskProx is a digital artisanship platform where people who are looking to outsource a task such as cleaning, carpentry, painting etc. can connect with trusted and skilled artisans or handymen to deliver on such tasks. Both parties simply connect, set the terms for the task, agree on a price and voila! the task is carried out and payments are disbursed.",
-    source_link: "https://github.com/PrantoshB/Food-On-Rails",
-    live_link: "https://food-on-rail.onrender.com/",
+
     tech_stack: [
       "JavaScript",
       "CSS",
@@ -73,6 +72,7 @@ const allProjects = [
       "JavaScript",
       "CSS",
       "SCSS",
+      "Python",
       "Reactjs",
       "JQuery",
       "React Bootstrap",
@@ -84,8 +84,7 @@ const allProjects = [
     image_url: peerScore,
     description:
       "PeerScore is a peer-to-peer lending and credit information platform that seeks to shape credit behavior within the informal sector. It is a platform that allows you leverage the power of social networks and peer pressure to help you get your money back from defaulters. It is the new and secure way to lend money and manage repayments easily.",
-    source_link: "https://github.com/PrantoshB/Food-On-Rails",
-    live_link: "https://food-on-rail.onrender.com/",
+
     tech_stack: [
       "React",
       "Javascript",
@@ -96,10 +95,23 @@ const allProjects = [
       "Python",
     ],
   },
+  {
+    project_name: "Food on React",
+    image_url: Food,
+    description: "Food-On-React is an ecomerce website for food puchase ",
+
+    tech_stack: [
+      "JavaScript",
+      "CSS",
+      "SCSS",
+      "Reactjs",
+      "JQuery",
+      "React Bootstrap",
+    ],
+  },
 ];
 const Projects = () => {
-  const id = Math.random();
-
+  
   // const dispatch = useDispatch();
   // const projects = useSelector((state) => state.projects.projects);
 
