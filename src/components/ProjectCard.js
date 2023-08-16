@@ -16,7 +16,7 @@ const ProjectCard = (props) => (
       <h3>{props.title}</h3>
       <p>{props.description}</p>
       <div className="stacks">
-        {props.stack.map((stack, id) => (
+        {props.stacks.map((stack, id) => (
           <button className="tech-stack" key={id}>
             {stack}
           </button>
