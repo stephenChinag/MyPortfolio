@@ -8,7 +8,12 @@ const CV = {
   email: "stephenchinag@gmail.com",
   phone: "+234 916 077 4463",
   location: "Lagos, Nigeria",
-  taglines: ["Pixel-perfect interfaces.", "Scalable systems.", "Seamless UX.", "Performance-first code."],
+  taglines: [
+    "Pixel-perfect interfaces.",
+    "Scalable systems.",
+    "Seamless UX.",
+    "Performance-first code.",
+  ],
   about:
     "Creative and detail-driven Senior Frontend Engineer with years of experience building responsive, performant, and user-centric applications. Highly skilled in React, Next.js, Tailwind CSS, and modern JavaScript. I turn ideas into impactful digital experiences that users love.",
   stats: [
@@ -141,9 +146,100 @@ const CV = {
       num: "04",
     },
   ],
-  tools: ["JavaScript ES6+","TypeScript","React.js","Next.js","Express.js","Redux Toolkit","Zustand","Context API","Tailwind CSS","SCSS","Bootstrap","Framer Motion","Radix UI","CSS Modules","Figma","Jest","React Testing Library","Webpack","SSR","SSG","Git","GitHub","REST APIs","PostgreSQL","MongoDB","SQL","Postman","Storybook"],
+  tools: [
+    "JavaScript ES6+",
+    "TypeScript",
+    "React.js",
+    "Next.js",
+    "Express.js",
+    "Redux Toolkit",
+    "Zustand",
+    "Context API",
+    "Tailwind CSS",
+    "SCSS",
+    "Bootstrap",
+    "Framer Motion",
+    "Radix UI",
+    "CSS Modules",
+    "Figma",
+    "Jest",
+    "React Testing Library",
+    "Webpack",
+    "SSR",
+    "SSG",
+    "Git",
+    "GitHub",
+    "REST APIs",
+    "PostgreSQL",
+    "MongoDB",
+    "SQL",
+    "Postman",
+    "Storybook",
+  ],
   certs: ["OCI Oracle Cloud Infrastructure", "ALX Software Engineer"],
 };
+
+function BotanicalPanel({ mirrored = false }) {
+  const petals = [0, 45, 90, 135, 180, 225, 270, 315];
+  return (
+    <svg
+      className="bg-art-panel"
+      style={mirrored ? { transform: "scaleX(-1)" } : undefined}
+      viewBox="0 0 200 900"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      {/* Stalk A — tallest */}
+      <path d="M28 900 C25 780 36 650 28 520 C20 390 32 285 26 180" fill="none" stroke="currentColor" strokeWidth="1.3"/>
+      <ellipse cx="25" cy="163" rx="5" ry="19" fill="currentColor" transform="rotate(8 25 163)"/>
+      <path d="M21 178 L12 163 M25 172 L16 159 M27 165 L35 152 M25 172 L33 159" fill="none" stroke="currentColor" strokeWidth="0.85"/>
+      <path d="M28 680 C15 662 5 640 -1 614" fill="none" stroke="currentColor" strokeWidth="1"/>
+      <path d="M28 520 C15 502 5 480 -1 454" fill="none" stroke="currentColor" strokeWidth="1"/>
+      {/* Stalk B */}
+      <path d="M72 900 C68 800 80 680 72 558 C64 448 76 356 70 264" fill="none" stroke="currentColor" strokeWidth="1.2"/>
+      <ellipse cx="69" cy="247" rx="4.5" ry="18" fill="currentColor" transform="rotate(-6 69 247)"/>
+      <path d="M65 262 L55 248 M69 257 L59 244 M71 250 L79 237 M69 257 L77 243" fill="none" stroke="currentColor" strokeWidth="0.8"/>
+      <path d="M72 700 C86 682 96 660 102 632" fill="none" stroke="currentColor" strokeWidth="1"/>
+      {/* Stalk C */}
+      <path d="M115 900 C111 812 124 714 115 612 C106 524 120 450 112 368" fill="none" stroke="currentColor" strokeWidth="1.1"/>
+      <ellipse cx="111" cy="351" rx="4" ry="16" fill="currentColor" transform="rotate(10 111 351)"/>
+      <path d="M107 367 L98 352 M111 362 L102 349 M113 355 L121 342" fill="none" stroke="currentColor" strokeWidth="0.75"/>
+      <path d="M115 800 C128 786 136 768 140 748" fill="none" stroke="currentColor" strokeWidth="1"/>
+      {/* Stalk D — shorter */}
+      <path d="M157 900 C153 840 166 762 157 672 C148 598 160 538 153 458" fill="none" stroke="currentColor" strokeWidth="1.1"/>
+      <ellipse cx="152" cy="441" rx="4" ry="15" fill="currentColor" transform="rotate(-8 152 441)"/>
+      <path d="M148 457 L139 443 M152 452 L143 438 M154 445 L162 432" fill="none" stroke="currentColor" strokeWidth="0.75"/>
+      <path d="M157 780 C170 764 180 742 185 718" fill="none" stroke="currentColor" strokeWidth="1"/>
+      {/* Grass blades */}
+      <path d="M18 900 C12 870 5 844 -8 818" fill="none" stroke="currentColor" strokeWidth="1"/>
+      <path d="M48 900 C42 874 36 850 23 828" fill="none" stroke="currentColor" strokeWidth="1"/>
+      <path d="M94 900 C89 878 84 856 72 836" fill="none" stroke="currentColor" strokeWidth="0.9"/>
+      <path d="M176 900 C172 878 168 856 158 836" fill="none" stroke="currentColor" strokeWidth="0.9"/>
+      {/* Wildflower — upper */}
+      <g transform="translate(20 495)">
+        <path d="M0 6 C-4 28 -6 48 -8 68" fill="none" stroke="currentColor" strokeWidth="1"/>
+        <circle cx="0" cy="0" r="5" fill="currentColor"/>
+        {petals.map((a) => (
+          <ellipse key={a} cx="0" cy="-13" rx="3" ry="6" fill="currentColor" opacity="0.75" transform={`rotate(${a})`}/>
+        ))}
+      </g>
+      {/* Wildflower — lower */}
+      <g transform="translate(138 642)">
+        <path d="M0 5 C4 26 6 46 8 64" fill="none" stroke="currentColor" strokeWidth="1"/>
+        <circle cx="0" cy="0" r="4" fill="currentColor"/>
+        {petals.map((a) => (
+          <ellipse key={a} cx="0" cy="-11" rx="2.5" ry="5" fill="currentColor" opacity="0.75" transform={`rotate(${a})`}/>
+        ))}
+      </g>
+      {/* Seed dots */}
+      <circle cx="56" cy="594" r="2.2" fill="currentColor"/>
+      <circle cx="93" cy="452" r="1.6" fill="currentColor"/>
+      <circle cx="36" cy="734" r="1.9" fill="currentColor"/>
+      <circle cx="124" cy="532" r="1.5" fill="currentColor"/>
+      <circle cx="172" cy="824" r="1.3" fill="currentColor"/>
+    </svg>
+  );
+}
 
 export default function App() {
   const [scrollPct, setScrollPct] = useState(0);
@@ -189,7 +285,12 @@ export default function App() {
 
   // Skills bar observer
   useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setSkillsVis(true); }, { threshold: 0.15 });
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) setSkillsVis(true);
+      },
+      { threshold: 0.15 },
+    );
     if (skillRef.current) obs.observe(skillRef.current);
     return () => obs.disconnect();
   }, []);
@@ -198,14 +299,53 @@ export default function App() {
   useEffect(() => {
     const els = document.querySelectorAll(".reveal");
     const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add("visible"); obs.unobserve(e.target); }
-      }),
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+            obs.unobserve(e.target);
+          }
+        }),
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
     );
     els.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
   }, []);
+
+  // Scroll progress bar
+  useEffect(() => {
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollPct(max > 0 ? (window.scrollY / max) * 100 : 0);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const chipColor = (name) => {
+    const light = [
+      { bg: "#E5EEFF", color: "#1D4ED8" },
+      { bg: "#EDE5FF", color: "#7C3AED" },
+      { bg: "#E5FFF2", color: "#047857" },
+      { bg: "#FFF4E5", color: "#B45309" },
+      { bg: "#FFE5F2", color: "#BE185D" },
+      { bg: "#E5FBFF", color: "#0E7490" },
+      { bg: "#FFFBE5", color: "#92400E" },
+      { bg: "#F0FFE5", color: "#3D6B0D" },
+    ];
+    const dk = [
+      { bg: "rgba(29,78,216,0.2)", color: "#93B4FF" },
+      { bg: "rgba(124,58,237,0.2)", color: "#C4AAFF" },
+      { bg: "rgba(4,120,87,0.2)", color: "#6EE7B7" },
+      { bg: "rgba(180,83,9,0.2)", color: "#FCD34D" },
+      { bg: "rgba(190,24,93,0.2)", color: "#FBAACC" },
+      { bg: "rgba(14,116,144,0.2)", color: "#67E8F9" },
+      { bg: "rgba(146,64,14,0.2)", color: "#FDE68A" },
+      { bg: "rgba(61,107,13,0.2)", color: "#A3E635" },
+    ];
+    const hash = name.split("").reduce((a, c) => a + c.charCodeAt(0), 0);
+    return (dark ? dk : light)[hash % 8];
+  };
 
   const go = (id) => {
     const el = refs.current[id];
@@ -579,49 +719,100 @@ export default function App() {
 
           .footer-bar { padding: 1.25rem 1rem; }
         }
+
+        /* ── PROGRESS BAR ── */
+        .scroll-bar {
+          position: fixed; top: 0; left: 0; height: 2px; z-index: 500;
+          background: var(--fg); pointer-events: none;
+          transition: width 0.08s linear;
+        }
+
+        /* ── BOTANICAL BACKGROUND ── */
+        .bg-art {
+          position: fixed; inset: 0; z-index: 0; pointer-events: none;
+          opacity: 0.045;
+          display: flex; justify-content: space-between; align-items: stretch;
+        }
+        .root-wrap.dark .bg-art { opacity: 0.065; }
+        .bg-art-panel {
+          width: 200px; height: 100%; flex-shrink: 0;
+          color: var(--fg); overflow: visible;
+        }
+        @media (max-width: 768px) { .bg-art { opacity: 0.025; } }
+        @media (max-width: 480px) { .bg-art { display: none; } }
       `}</style>
+
+      {/* Scroll progress bar */}
+      <div className="scroll-bar" style={{ width: `${scrollPct}%` }} />
+
+      {/* Botanical background art */}
+      <div className="bg-art">
+        <BotanicalPanel />
+        <BotanicalPanel mirrored />
+      </div>
 
       {/* Cursor */}
       <div className="cursor" ref={cursorRef} />
 
       {/* Dark mode toggle */}
-      <button className="dm-toggle" onClick={() => setDark((d) => !d)} aria-label="Toggle dark mode">
+      <button
+        className="dm-toggle"
+        onClick={() => setDark((d) => !d)}
+        aria-label="Toggle dark mode"
+      >
         <div className="dm-track">
-          <div className={`dm-thumb${dark ? " on" : ""}`}>{dark ? "☾" : "☀"}</div>
+          <div className={`dm-thumb${dark ? " on" : ""}`}>
+            {dark ? "☾" : "☀"}
+          </div>
         </div>
       </button>
 
       {/* ── HERO ── */}
       <div ref={(el) => (refs.current["home"] = el)} className="hero">
         <div className="hero-left">
-          <div className="hero-label"><span className="hero-label-dot" />Senior Frontend Engineer</div>
+          <div className="hero-label">
+            <span className="hero-label-dot" />
+            Senior Frontend Engineer
+          </div>
           <h1 className="hero-name">
-            China<wbr/>gorom<br />
+            China
+            <wbr />
+            gorom
+            <br />
             <span className="it">Owoamanam</span>
           </h1>
           <div className="hero-type">
-            {typed}<span className="type-cursor">&nbsp;</span>
+            {typed}
+            <span className="type-cursor">&nbsp;</span>
           </div>
           <p className="hero-bio">{CV.about}</p>
           <div className="hero-cta">
-            <a href={`mailto:${CV.email}`} className="btn-dark">Say Hello →</a>
-            <button className="btn-outline" onClick={() => go("projects")}>See my Work</button>
+            <a href={`mailto:${CV.email}`} className="btn-dark">
+              Say Hello →
+            </a>
+            <button className="btn-outline" onClick={() => go("projects")}>
+              See my Work
+            </button>
           </div>
         </div>
         <div className="hero-right">
           <div className="avail-badge">
-            <span className="avail-dot" />Available for hire
+            <span className="avail-dot" />
+            Available for hire
           </div>
           <div className="hero-stats-grid">
             {CV.stats.map((s) => (
               <div className="hero-stat" key={s.label}>
-                <div className="stat-num"><span className="it">{s.value}</span></div>
+                <div className="stat-num">
+                  <span className="it">{s.value}</span>
+                </div>
                 <div className="stat-lbl">{s.label}</div>
               </div>
             ))}
           </div>
           <div className="hero-scroll">
-            <span className="scroll-line" />Scroll to explore
+            <span className="scroll-line" />
+            Scroll to explore
           </div>
         </div>
       </div>
@@ -630,11 +821,24 @@ export default function App() {
       <div className="marquee-wrap">
         <div className="marquee-track">
           {[...Array(2)].map((_, pass) =>
-            ["React.js","Next.js","TypeScript","Tailwind CSS","Redux","Zustand","Node.js","Jest","Figma","PostgreSQL","MongoDB","LiveKit"].map((t, i) => (
+            [
+              "React.js",
+              "Next.js",
+              "TypeScript",
+              "Tailwind CSS",
+              "Redux",
+              "Zustand",
+              "Node.js",
+              "Jest",
+              "Figma",
+              "PostgreSQL",
+              "MongoDB",
+              "LiveKit",
+            ].map((t, i) => (
               <div className="marquee-item" key={`${pass}-${i}`}>
                 <strong>✦</strong>&nbsp; {t} &nbsp;
               </div>
-            ))
+            )),
           )}
         </div>
       </div>
@@ -644,30 +848,57 @@ export default function App() {
         <div className="about-grid">
           <div className="about-sticky reveal">
             <div className="sec-num">00 — About</div>
-            <div className="sec-title">The person<br />behind the<br />code.</div>
+            <div className="sec-title">
+              The person
+              <br />
+              behind the
+              <br />
+              code.
+            </div>
           </div>
           <div>
-            <div className="about-body reveal" style={{ transitionDelay: "0.1s" }}>
+            <div
+              className="about-body reveal"
+              style={{ transitionDelay: "0.1s" }}
+            >
               <p>
-                I'm a <strong>Senior Frontend Engineer</strong> based in Lagos, Nigeria with a deep passion for turning complex product requirements into clean, fast, and beautiful user interfaces. I live at the intersection of design and engineering.
+                I'm a <strong>Senior Frontend Engineer</strong> based in Lagos,
+                Nigeria with a deep passion for turning complex product
+                requirements into clean, fast, and beautiful user interfaces. I
+                live at the intersection of design and engineering.
               </p>
               <p>
-                From <strong>fintech dashboards</strong> at Holmen Consulting to <strong>neobanking apps</strong> at Kuda, from <strong>real-time video platforms</strong> to <strong>regulated trading interfaces</strong> — I've built products that millions of users trust.
+                From <strong>fintech dashboards</strong> at Holmen Consulting to{" "}
+                <strong>neobanking apps</strong> at Kuda, from{" "}
+                <strong>real-time video platforms</strong> to{" "}
+                <strong>regulated trading interfaces</strong> — I've built
+                products that millions of users trust.
               </p>
               <p>
-                I believe great frontend engineering isn't just code — it's <strong>empathy, craft, and performance</strong>. Every millisecond matters. Every interaction tells a story.
+                I believe great frontend engineering isn't just code — it's{" "}
+                <strong>empathy, craft, and performance</strong>. Every
+                millisecond matters. Every interaction tells a story.
               </p>
             </div>
             <div className="about-cards">
-              <div className="about-card reveal" style={{ transitionDelay: "0.15s" }}>
+              <div
+                className="about-card reveal"
+                style={{ transitionDelay: "0.15s" }}
+              >
                 <div>
                   <div className="about-card-label">Education</div>
-                  <div className="about-card-val">BSc Computer Science · Federal University Birnin Kebbi</div>
+                  <div className="about-card-val">
+                    BSc Computer Science · Federal University Birnin Kebbi
+                  </div>
                 </div>
                 <div className="about-card-arrow">→</div>
               </div>
               {CV.certs.map((c, ci) => (
-                <div className="about-card reveal" key={c} style={{ transitionDelay: `${(ci + 2) * 0.1}s` }}>
+                <div
+                  className="about-card reveal"
+                  key={c}
+                  style={{ transitionDelay: `${(ci + 2) * 0.1}s` }}
+                >
                   <div>
                     <div className="about-card-label">Certificate</div>
                     <div className="about-card-val">{c}</div>
@@ -681,16 +912,28 @@ export default function App() {
       </div>
 
       {/* ── WORK ── */}
-      <div ref={(el) => (refs.current["work"] = el)} className="wrap section" style={{ borderTop: "1px solid var(--border)" }}>
+      <div
+        ref={(el) => (refs.current["work"] = el)}
+        className="wrap section"
+        style={{ borderTop: "1px solid var(--border)" }}
+      >
         <div className="work-header reveal">
           <div>
             <div className="sec-num">01 — Experience</div>
-            <div className="sec-title">Where I've<br />made an impact.</div>
+            <div className="sec-title">
+              Where I've
+              <br />
+              made an impact.
+            </div>
           </div>
         </div>
         <div className="exp-list">
           {CV.experience.map((e, i) => (
-            <div className="exp-row reveal" key={i} style={{ transitionDelay: `${i * 0.07}s` }}>
+            <div
+              className="exp-row reveal"
+              key={i}
+              style={{ transitionDelay: `${i * 0.07}s` }}
+            >
               <div>
                 <div className="exp-co">{e.company}</div>
                 <div className="exp-co-tag">{e.tag}</div>
@@ -698,10 +941,19 @@ export default function App() {
               <div>
                 <div className="exp-role-title">{e.role}</div>
                 <ul className="exp-blist">
-                  {e.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                  {e.bullets.map((b, j) => (
+                    <li key={j}>{b}</li>
+                  ))}
                 </ul>
                 <div className="chips">
-                  {e.stack.map((t) => <span className="chip" key={t}>{t}</span>)}
+                  {e.stack.map((t) => {
+                    const { bg, color } = chipColor(t);
+                    return (
+                      <span className="chip" key={t} style={{ background: bg, color, borderColor: "transparent" }}>
+                        {t}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
               <div className="exp-period-loc">
@@ -714,19 +966,45 @@ export default function App() {
       </div>
 
       {/* ── PROJECTS ── */}
-      <div ref={(el) => (refs.current["projects"] = el)} className="wrap section" style={{ borderTop: "1px solid var(--border)" }}>
+      <div
+        ref={(el) => (refs.current["projects"] = el)}
+        className="wrap section"
+        style={{ borderTop: "1px solid var(--border)" }}
+      >
         <div className="sec-num reveal">02 — Projects</div>
-        <div className="sec-title reveal" style={{ marginBottom: "0.25rem", transitionDelay: "0.1s" }}>Things I've<br />shipped.</div>
+        <div
+          className="sec-title reveal"
+          style={{ marginBottom: "0.25rem", transitionDelay: "0.1s" }}
+        >
+          Things I've
+          <br />
+          shipped.
+        </div>
         <div className="proj-list">
           {CV.projects.map((p, i) => (
-            <div key={i} className="proj-row reveal" style={{ transitionDelay: `${i * 0.09}s` }} onMouseEnter={() => setHoveredProject(i)} onMouseLeave={() => setHoveredProject(null)}>
+            <div
+              key={i}
+              className="proj-row reveal"
+              style={{ transitionDelay: `${i * 0.09}s` }}
+              onMouseEnter={() => setHoveredProject(i)}
+              onMouseLeave={() => setHoveredProject(null)}
+            >
               <div className="proj-num">{p.num}</div>
               <div className="proj-info">
-                <div className="proj-client-tag">{p.client} · {p.year}</div>
+                <div className="proj-client-tag">
+                  {p.client} · {p.year}
+                </div>
                 <div className="proj-title">{p.name}</div>
                 <div className="proj-desc">{p.desc}</div>
                 <div className="proj-stacks">
-                  {p.stack.map((t) => <span className="chip" key={t}>{t}</span>)}
+                  {p.stack.map((t) => {
+                    const { bg, color } = chipColor(t);
+                    return (
+                      <span className="chip" key={t} style={{ background: bg, color, borderColor: "transparent" }}>
+                        {t}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
               <div className="proj-arrow">↗</div>
@@ -740,10 +1018,30 @@ export default function App() {
         <div className="skills-inner" ref={skillRef}>
           <div className="skills-top">
             <div className="reveal">
-              <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(250,250,248,0.35)", marginBottom: "0.75rem" }}>03 — Skills</div>
-              <div className="skills-sec-title">My craft,<br />by the<br />numbers.</div>
+              <div
+                style={{
+                  fontSize: "0.65rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.16em",
+                  textTransform: "uppercase",
+                  color: "rgba(250,250,248,0.35)",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                03 — Skills
+              </div>
+              <div className="skills-sec-title">
+                My craft,
+                <br />
+                by the
+                <br />
+                numbers.
+              </div>
             </div>
-            <div className="skill-rows reveal" style={{ transitionDelay: "0.15s" }}>
+            <div
+              className="skill-rows reveal"
+              style={{ transitionDelay: "0.15s" }}
+            >
               {CV.skills.map((s, i) => (
                 <div className="skrow" key={s.name}>
                   <div className="skrow-top">
@@ -753,53 +1051,120 @@ export default function App() {
                   <div className="skrow-track">
                     <div
                       className={`skrow-fill${skillsVis ? " vis" : ""}`}
-                      style={{ width: `${s.level}%`, transitionDelay: `${i * 90}ms` }}
+                      style={{
+                        width: `${s.level}%`,
+                        transitionDelay: `${i * 90}ms`,
+                      }}
                     />
                   </div>
                 </div>
               ))}
             </div>
           </div>
-          <div className="tools-dark reveal" style={{ transitionDelay: "0.1s" }}>
+          <div
+            className="tools-dark reveal"
+            style={{ transitionDelay: "0.1s" }}
+          >
             <div className="tools-dark-label">All tools & technologies</div>
             <div className="tools-cloud">
-              {CV.tools.map((t) => <span className="tool-tag" key={t}>{t}</span>)}
+              {CV.tools.map((t) => (
+                <span className="tool-tag" key={t}>
+                  {t}
+                </span>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
       {/* ── CONTACT ── */}
-      <div ref={(el) => (refs.current["contact"] = el)} className="wrap section">
+      <div
+        ref={(el) => (refs.current["contact"] = el)}
+        className="wrap section"
+      >
         <div className="contact-split">
           <div className="reveal">
             <div className="sec-num">04 — Contact</div>
             <div className="contact-big">
-              Let's build<br />something<br /><em>great.</em>
+              Let's build
+              <br />
+              something
+              <br />
+              <em>great.</em>
             </div>
             <p className="contact-sub">
-              Open to Senior Frontend roles, contract work, and interesting collaborations. If you have a project or opportunity — let's talk.
+              Open to Senior Frontend roles, contract work, and interesting
+              collaborations. If you have a project or opportunity — let's talk.
             </p>
           </div>
           <div className="contact-items">
-            <a href={`mailto:${CV.email}`} className="c-item reveal" style={{ transitionDelay: "0.05s" }}>
+            <a
+              href={`mailto:${CV.email}`}
+              className="c-item reveal"
+              style={{ transitionDelay: "0.05s" }}
+            >
               <div className="c-icon">✉</div>
-              <div><div className="c-lbl">Email</div><div className="c-val">{CV.email}</div></div>
+              <div>
+                <div className="c-lbl">Email</div>
+                <div className="c-val">{CV.email}</div>
+              </div>
               <div className="c-arr">→</div>
             </a>
-            <a href={`tel:${CV.phone.replace(/\s/g,"")}`} className="c-item reveal" style={{ transitionDelay: "0.15s" }}>
+            <a
+              href={`tel:${CV.phone.replace(/\s/g, "")}`}
+              className="c-item reveal"
+              style={{ transitionDelay: "0.15s" }}
+            >
               <div className="c-icon">☎</div>
-              <div><div className="c-lbl">Phone</div><div className="c-val">{CV.phone}</div></div>
+              <div>
+                <div className="c-lbl">Phone</div>
+                <div className="c-val">{CV.phone}</div>
+              </div>
               <div className="c-arr">→</div>
             </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="c-item reveal" style={{ transitionDelay: "0.25s" }}>
-              <div className="c-icon" style={{ fontFamily:"'DM Mono',monospace", fontSize:"0.68rem" }}>GH</div>
-              <div><div className="c-lbl">GitHub</div><div className="c-val">github.com/chinagorom</div></div>
+            <a
+              href="https://github.com/stephenChinag"
+              target="_blank"
+              rel="noreferrer"
+              className="c-item reveal"
+              style={{ transitionDelay: "0.25s" }}
+            >
+              <div
+                className="c-icon"
+                style={{
+                  fontFamily: "'DM Mono',monospace",
+                  fontSize: "0.68rem",
+                }}
+              >
+                GH
+              </div>
+              <div>
+                <div className="c-lbl">GitHub</div>
+                <div className="c-val">github.com/chinagorom</div>
+              </div>
               <div className="c-arr">→</div>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="c-item reveal" style={{ transitionDelay: "0.35s" }}>
-              <div className="c-icon" style={{ fontFamily:"'Cabinet Grotesk',sans-serif", fontSize:"0.68rem", fontWeight:700 }}>in</div>
-              <div><div className="c-lbl">LinkedIn</div><div className="c-val">linkedin.com/in/chinagorom</div></div>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noreferrer"
+              className="c-item reveal"
+              style={{ transitionDelay: "0.35s" }}
+            >
+              <div
+                className="c-icon"
+                style={{
+                  fontFamily: "'Cabinet Grotesk',sans-serif",
+                  fontSize: "0.68rem",
+                  fontWeight: 700,
+                }}
+              >
+                in
+              </div>
+              <div>
+                <div className="c-lbl">LinkedIn</div>
+                <div className="c-val">linkedin.com/in/chinagorom</div>
+              </div>
               <div className="c-arr">→</div>
             </a>
           </div>
@@ -809,7 +1174,9 @@ export default function App() {
       {/* ── FOOTER ── */}
       <div style={{ borderTop: "1px solid var(--border)" }}>
         <div className="footer-bar reveal">
-          <div className="footer-l">Chinagorom Owoamanam — Senior Frontend Engineer</div>
+          <div className="footer-l">
+            Chinagorom Owoamanam — Senior Frontend Engineer
+          </div>
           <div className="footer-r">Lagos, Nigeria 🇳🇬 · © 2026</div>
         </div>
       </div>
