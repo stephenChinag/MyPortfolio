@@ -18,22 +18,28 @@ import Footer from "./components/Footer.jsx";
 // ── EmailJS config (keys live in .env.local) ──
 // Still needed: set VITE_EJS_SERVICE and VITE_EJS_TEMPLATE in .env.local
 // after creating your service and template at https://emailjs.com
-const EJS_SERVICE  = import.meta.env.VITE_EJS_SERVICE;
+const EJS_SERVICE = import.meta.env.VITE_EJS_SERVICE;
 const EJS_TEMPLATE = import.meta.env.VITE_EJS_TEMPLATE;
-const EJS_KEY      = import.meta.env.VITE_EJS_PUBLIC_KEY;
+const EJS_KEY = import.meta.env.VITE_EJS_PUBLIC_KEY;
 
 export default function App() {
-  const [scrollPct, setScrollPct]   = useState(0);
-  const [tagIdx, setTagIdx]         = useState(0);
-  const [typed, setTyped]           = useState("");
-  const [deleting, setDeleting]     = useState(false);
-  const [form, setForm]             = useState({ name: "", company: "", email: "", budget: "", message: "" });
-  const [formSent, setFormSent]     = useState(false);
+  const [scrollPct, setScrollPct] = useState(0);
+  const [tagIdx, setTagIdx] = useState(0);
+  const [typed, setTyped] = useState("");
+  const [deleting, setDeleting] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    company: "",
+    email: "",
+    budget: "",
+    message: "",
+  });
+  const [formSent, setFormSent] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
-  const [formError, setFormError]   = useState(false);
-  const [skillsVis, setSkillsVis]   = useState(false);
-  const [dark, setDark]             = useState(false);
-  const refs     = useRef({});
+  const [formError, setFormError] = useState(false);
+  const [skillsVis, setSkillsVis] = useState(false);
+  const [dark, setDark] = useState(false);
+  const refs = useRef({});
   const skillRef = useRef(null);
   const cursorRef = useRef(null);
 
@@ -70,8 +76,10 @@ export default function App() {
   // Skills bar observer
   useEffect(() => {
     const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setSkillsVis(true); },
-      { threshold: 0.15 }
+      ([e]) => {
+        if (e.isIntersecting) setSkillsVis(true);
+      },
+      { threshold: 0.15 },
     );
     if (skillRef.current) obs.observe(skillRef.current);
     return () => obs.disconnect();
@@ -81,10 +89,14 @@ export default function App() {
   useEffect(() => {
     const els = document.querySelectorAll(".reveal");
     const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add("visible"); obs.unobserve(e.target); }
-      }),
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+            obs.unobserve(e.target);
+          }
+        }),
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
     );
     els.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
@@ -105,13 +117,18 @@ export default function App() {
     setFormLoading(true);
     setFormError(false);
     try {
-      await emailjs.send(EJS_SERVICE, EJS_TEMPLATE, {
-        from_name:    form.name,
-        from_company: form.company,
-        from_email:   form.email,
-        budget:       form.budget || "Not specified",
-        message:      form.message,
-      }, EJS_KEY);
+      await emailjs.send(
+        EJS_SERVICE,
+        EJS_TEMPLATE,
+        {
+          from_name: form.name,
+          from_company: form.company,
+          from_email: form.email,
+          budget: form.budget,
+          message: form.message,
+        },
+        EJS_KEY,
+      );
       setFormSent(true);
       setForm({ name: "", company: "", email: "", budget: "", message: "" });
       setTimeout(() => setFormSent(false), 6000);
@@ -139,7 +156,11 @@ export default function App() {
       </div>
       <div className="cursor" ref={cursorRef} />
       <DarkToggle dark={dark} setDark={setDark} />
-      <Hero typed={typed} go={go} sectionRef={(el) => (refs.current["home"] = el)} />
+      <Hero
+        typed={typed}
+        go={go}
+        sectionRef={(el) => (refs.current["home"] = el)}
+      />
       <Marquee />
       <About sectionRef={(el) => (refs.current["about"] = el)} />
       <Experience
