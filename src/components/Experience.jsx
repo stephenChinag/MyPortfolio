@@ -5,7 +5,7 @@ export default function Experience({ sectionRef, chipColor }) {
     <div ref={sectionRef} className="wrap section" style={{ borderTop: "1px solid var(--border)" }}>
       <div className="work-header reveal">
         <div>
-          <div className="sec-num">01 — Experience</div>
+          <div className="sec-num">01 · Experience</div>
           <div className="sec-title">Where I've<br />made an impact.</div>
         </div>
       </div>

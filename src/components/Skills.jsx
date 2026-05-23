@@ -7,7 +7,7 @@ export default function Skills({ sectionRef, skillRef, skillsVis }) {
         <div className="skills-top">
           <div className="reveal">
             <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(250,250,248,0.35)", marginBottom: "0.75rem" }}>
-              03 — Skills
+              03 · Skills
             </div>
             <div className="skills-sec-title">My craft,<br />by the<br />numbers.</div>
           </div>

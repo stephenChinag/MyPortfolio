@@ -15,7 +15,7 @@ export default function HireForm({
     >
       <div className="hire-grid">
         <div className="reveal">
-          <div className="sec-num">05 — Hire Me</div>
+          <div className="sec-num">05 · Hire Me</div>
           <div className="sec-title">
             Start a<br />
             project
@@ -108,7 +108,7 @@ export default function HireForm({
             <textarea
               className="hire-input hire-textarea"
               required
-              placeholder="Describe the project — scope, timeline, goals…"
+              placeholder="Describe the project: scope, timeline, goals…"
               value={form.message}
               onChange={(e) =>
                 setForm((f) => ({ ...f, message: e.target.value }))

@@ -5,7 +5,7 @@ export default function Projects({ sectionRef, chipColor }) {
   const [, setHovered] = useState(null);
   return (
     <div ref={sectionRef} className="wrap section" style={{ borderTop: "1px solid var(--border)" }}>
-      <div className="sec-num reveal">02 — Projects</div>
+      <div className="sec-num reveal">02 · Projects</div>
       <div className="sec-title reveal" style={{ marginBottom: "0.25rem", transitionDelay: "0.1s" }}>
         Things I've<br />shipped.
       </div>

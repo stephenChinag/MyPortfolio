@@ -39,6 +39,7 @@ export default function App() {
   const [formError, setFormError] = useState(false);
   const [skillsVis, setSkillsVis] = useState(false);
   const [dark, setDark] = useState(false);
+  const [ripples, setRipples] = useState([]);
   const refs = useRef({});
   const skillRef = useRef(null);
   const cursorRef = useRef(null);
@@ -147,13 +148,27 @@ export default function App() {
 
   const getChipColor = (name) => chipColor(name, dark);
 
+  const handleClick = (e) => {
+    const id = Date.now() + Math.random();
+    setRipples((r) => [...r, { id, x: e.clientX, y: e.clientY }]);
+    setTimeout(() => setRipples((r) => r.filter((rip) => rip.id !== id)), 750);
+  };
+
   return (
-    <div className={`root-wrap${dark ? " dark" : ""}`}>
+    <div className={`root-wrap${dark ? " dark" : ""}`} onClick={handleClick}>
       <div className="scroll-bar" style={{ width: `${scrollPct}%` }} />
+      <div className="bg-glow">
+        <div className="glow-orb glow-orb-1" />
+        <div className="glow-orb glow-orb-2" />
+        <div className="glow-orb glow-orb-3" />
+      </div>
       <div className="bg-art">
         <BotanicalPanel />
         <BotanicalPanel mirrored />
       </div>
+      {ripples.map((r) => (
+        <div key={r.id} className="click-ripple" style={{ left: r.x, top: r.y }} />
+      ))}
       <div className="cursor" ref={cursorRef} />
       <DarkToggle dark={dark} setDark={setDark} />
       <Hero

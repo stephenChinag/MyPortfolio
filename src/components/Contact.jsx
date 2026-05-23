@@ -5,10 +5,10 @@ export default function Contact({ sectionRef }) {
     <div ref={sectionRef} className="wrap section">
       <div className="contact-split">
         <div className="reveal">
-          <div className="sec-num">04 — Contact</div>
+          <div className="sec-num">04 · Contact</div>
           <div className="contact-big">Let's build<br />something<br /><em>great.</em></div>
           <p className="contact-sub">
-            Open to Senior Frontend roles, contract work, and interesting collaborations. If you have a project or opportunity — let's talk.
+            Open to Senior Frontend roles, contract work, and interesting collaborations. If you have a project or opportunity, let's talk.
           </p>
         </div>
         <div className="contact-items">
