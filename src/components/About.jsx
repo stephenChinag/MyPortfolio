@@ -65,35 +65,26 @@ export default function About({ sectionRef }) {
               </div>
             ))}
             <div
-              className="about-card about-card--photo reveal"
+              className="photo-showcase reveal"
               style={{ transitionDelay: `${(CV.certs.length + 2) * 0.1}s` }}
             >
-              <div className="photo-text-col">
-                <div className="about-card-label">Outside the code</div>
-                <div className="about-card-val" style={{ marginTop: "0.3rem", marginBottom: "1rem" }}>
-                  Conceptual photographer.<br />I explore ideas through the lens.
+              <div className="photo-showcase-bar" />
+              <div className="photo-showcase-body">
+                <div className="photo-showcase-top">
+                  <div className="photo-showcase-label">◎ &nbsp;Outside the code</div>
+                  <a
+                    href="https://www.instagram.com/p/CDbcc1LpVMp/?igsh=MnB0NThtaTRzYmZp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="photo-showcase-cta"
+                  >
+                    View on Instagram ↗
+                  </a>
                 </div>
-                <a
-                  href="https://www.instagram.com/p/CDbcc1LpVMp/?igsh=MnB0NThtaTRzYmZp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="photo-ig-link"
-                >
-                  View on Instagram ↗
-                </a>
-              </div>
-              <div className="photo-polaroid">
-                <div className="photo-embed-wrap">
-                  <iframe
-                    src="https://www.instagram.com/p/CDbcc1LpVMp/embed/"
-                    className="photo-embed"
-                    frameBorder="0"
-                    scrolling="no"
-                    allowTransparency="true"
-                    title="Conceptual photography by Chinagorom"
-                  />
-                </div>
-                <div className="photo-polaroid-caption">conceptual · Lagos</div>
+                <div className="photo-showcase-title">Conceptual Photographer</div>
+                <p className="photo-showcase-desc">
+                  I explore ideas through the lens. Light, shadow, and meaning in every frame. Lagos, 2021.
+                </p>
               </div>
             </div>
           </div>

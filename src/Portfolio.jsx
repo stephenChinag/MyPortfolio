@@ -38,11 +38,9 @@ export default function App() {
   const [formSent, setFormSent] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
   const [formError, setFormError] = useState(false);
-  const [skillsVis, setSkillsVis] = useState(false);
   const [dark, setDark] = useState(false);
   const [ripples, setRipples] = useState([]);
   const refs = useRef({});
-  const skillRef = useRef(null);
   const cursorRef = useRef(null);
 
   // Typewriter
@@ -75,17 +73,6 @@ export default function App() {
     return () => window.removeEventListener("mousemove", move);
   }, []);
 
-  // Skills bar observer
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) setSkillsVis(true);
-      },
-      { threshold: 0.15 },
-    );
-    if (skillRef.current) obs.observe(skillRef.current);
-    return () => obs.disconnect();
-  }, []);
 
   // Scroll reveal
   useEffect(() => {
@@ -192,11 +179,7 @@ export default function App() {
           sectionRef={(el) => (refs.current["projects"] = el)}
           chipColor={getChipColor}
         />
-        <Skills
-          sectionRef={(el) => (refs.current["skills"] = el)}
-          skillRef={skillRef}
-          skillsVis={skillsVis}
-        />
+        <Skills sectionRef={(el) => (refs.current["skills"] = el)} />
         <Contact sectionRef={(el) => (refs.current["contact"] = el)} />
         <HireForm
           sectionRef={(el) => (refs.current["hire"] = el)}
