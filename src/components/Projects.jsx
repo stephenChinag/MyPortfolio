@@ -4,11 +4,11 @@ import { CV } from "../data/cv.js";
 export default function Projects({ sectionRef, chipColor }) {
   const [, setHovered] = useState(null);
   return (
-    <div ref={sectionRef} className="wrap section" style={{ borderTop: "1px solid var(--border)" }}>
+    <section ref={sectionRef} className="wrap section" aria-label="Projects" style={{ borderTop: "1px solid var(--border)" }}>
       <div className="sec-num reveal">02 · Projects</div>
-      <div className="sec-title reveal" style={{ marginBottom: "0.25rem", transitionDelay: "0.1s" }}>
+      <h2 className="sec-title reveal" style={{ marginBottom: "0.25rem", transitionDelay: "0.1s" }}>
         Things I've<br />shipped.
-      </div>
+      </h2>
       <div className="proj-list">
         {CV.projects.map((p, i) => (
           <div
@@ -38,6 +38,6 @@ export default function Projects({ sectionRef, chipColor }) {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

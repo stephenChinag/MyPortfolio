@@ -8,22 +8,23 @@ export default function HireForm({
   onSubmit,
 }) {
   return (
-    <div
+    <section
       ref={sectionRef}
       className="wrap section"
+      aria-label="Hire Me"
       style={{ borderTop: "1px solid var(--border)" }}
     >
       <div className="hire-grid">
         <div className="reveal">
           <div className="sec-num">05 · Hire Me</div>
-          <div className="sec-title">
+          <h2 className="sec-title">
             Start a<br />
             project
             <br />
             <em style={{ fontStyle: "italic", color: "var(--fg3)" }}>
               together.
             </em>
-          </div>
+          </h2>
           <p className="contact-sub" style={{ marginTop: "1.25rem" }}>
             Tell me what you're building and I'll get back to you within 24
             hours.
@@ -134,6 +135,6 @@ export default function HireForm({
           )}
         </form>
       </div>
-    </div>
+    </section>
   );
 }

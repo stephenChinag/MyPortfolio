@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 import { chipColor } from "./utils/chipColor.js";
 import { CV } from "./data/cv.js";
 import BotanicalPanel from "./components/BotanicalPanel.jsx";
+import BackgroundText from "./components/BackgroundText.jsx";
 import DarkToggle from "./components/DarkToggle.jsx";
 import Hero from "./components/Hero.jsx";
 import Marquee from "./components/Marquee.jsx";
@@ -161,7 +162,11 @@ export default function App() {
         <div className="glow-orb glow-orb-1" />
         <div className="glow-orb glow-orb-2" />
         <div className="glow-orb glow-orb-3" />
+        <div className="glow-orb glow-orb-4" />
+        <div className="glow-orb glow-orb-5" />
       </div>
+      <div className="bg-grid" />
+      <BackgroundText />
       <div className="bg-art">
         <BotanicalPanel />
         <BotanicalPanel mirrored />
@@ -171,36 +176,38 @@ export default function App() {
       ))}
       <div className="cursor" ref={cursorRef} />
       <DarkToggle dark={dark} setDark={setDark} />
-      <Hero
-        typed={typed}
-        go={go}
-        sectionRef={(el) => (refs.current["home"] = el)}
-      />
-      <Marquee />
-      <About sectionRef={(el) => (refs.current["about"] = el)} />
-      <Experience
-        sectionRef={(el) => (refs.current["work"] = el)}
-        chipColor={getChipColor}
-      />
-      <Projects
-        sectionRef={(el) => (refs.current["projects"] = el)}
-        chipColor={getChipColor}
-      />
-      <Skills
-        sectionRef={(el) => (refs.current["skills"] = el)}
-        skillRef={skillRef}
-        skillsVis={skillsVis}
-      />
-      <Contact sectionRef={(el) => (refs.current["contact"] = el)} />
-      <HireForm
-        sectionRef={(el) => (refs.current["hire"] = el)}
-        form={form}
-        setForm={setForm}
-        formSent={formSent}
-        formLoading={formLoading}
-        formError={formError}
-        onSubmit={handleHire}
-      />
+      <main>
+        <Hero
+          typed={typed}
+          go={go}
+          sectionRef={(el) => (refs.current["home"] = el)}
+        />
+        <Marquee />
+        <About sectionRef={(el) => (refs.current["about"] = el)} />
+        <Experience
+          sectionRef={(el) => (refs.current["work"] = el)}
+          chipColor={getChipColor}
+        />
+        <Projects
+          sectionRef={(el) => (refs.current["projects"] = el)}
+          chipColor={getChipColor}
+        />
+        <Skills
+          sectionRef={(el) => (refs.current["skills"] = el)}
+          skillRef={skillRef}
+          skillsVis={skillsVis}
+        />
+        <Contact sectionRef={(el) => (refs.current["contact"] = el)} />
+        <HireForm
+          sectionRef={(el) => (refs.current["hire"] = el)}
+          form={form}
+          setForm={setForm}
+          formSent={formSent}
+          formLoading={formLoading}
+          formError={formError}
+          onSubmit={handleHire}
+        />
+      </main>
       <Footer />
     </div>
   );

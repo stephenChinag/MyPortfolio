@@ -2,11 +2,11 @@ import { CV } from "../data/cv.js";
 
 export default function Experience({ sectionRef, chipColor }) {
   return (
-    <div ref={sectionRef} className="wrap section" style={{ borderTop: "1px solid var(--border)" }}>
+    <section ref={sectionRef} className="wrap section" aria-label="Experience" style={{ borderTop: "1px solid var(--border)" }}>
       <div className="work-header reveal">
         <div>
           <div className="sec-num">01 · Experience</div>
-          <div className="sec-title">Where I've<br />made an impact.</div>
+          <h2 className="sec-title">Where I've<br />made an impact.</h2>
         </div>
       </div>
       <div className="exp-list">
@@ -39,6 +39,6 @@ export default function Experience({ sectionRef, chipColor }) {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

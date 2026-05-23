@@ -2,11 +2,11 @@ import { CV } from "../data/cv.js";
 
 export default function Contact({ sectionRef }) {
   return (
-    <div ref={sectionRef} className="wrap section">
+    <section ref={sectionRef} className="wrap section" aria-label="Contact">
       <div className="contact-split">
         <div className="reveal">
           <div className="sec-num">04 · Contact</div>
-          <div className="contact-big">Let's build<br />something<br /><em>great.</em></div>
+          <h2 className="contact-big">Let's build<br />something<br /><em>great.</em></h2>
           <p className="contact-sub">
             Open to Senior Frontend roles, contract work, and interesting collaborations. If you have a project or opportunity, let's talk.
           </p>
@@ -34,6 +34,6 @@ export default function Contact({ sectionRef }) {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

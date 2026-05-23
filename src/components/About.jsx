@@ -2,17 +2,17 @@ import { CV } from "../data/cv.js";
 
 export default function About({ sectionRef }) {
   return (
-    <div ref={sectionRef} className="wrap section">
+    <section ref={sectionRef} className="wrap section" aria-label="About">
       <div className="about-grid">
         <div className="about-sticky reveal">
           <div className="sec-num">00 · About</div>
-          <div className="sec-title">
+          <h2 className="sec-title">
             The person
             <br />
             behind the
             <br />
             code.
-          </div>
+          </h2>
         </div>
         <div>
           <div
@@ -66,25 +66,12 @@ export default function About({ sectionRef }) {
             ))}
             <div
               className="about-card about-card--photo reveal"
-              style={{
-                transitionDelay: `${(CV.certs.length + 2) * 0.1}s`,
-                flexDirection: "column",
-                alignItems: "stretch",
-                gap: "1rem",
-              }}
+              style={{ transitionDelay: `${(CV.certs.length + 2) * 0.1}s` }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                }}
-              >
-                <div>
-                  <div className="about-card-label">Outside the code</div>
-                  <div className="about-card-val">
-                    Conceptual photographer I explore ideas through the lens.
-                  </div>
+              <div className="photo-text-col">
+                <div className="about-card-label">Outside the code</div>
+                <div className="about-card-val" style={{ marginTop: "0.3rem", marginBottom: "1rem" }}>
+                  Conceptual photographer.<br />I explore ideas through the lens.
                 </div>
                 <a
                   href="https://www.instagram.com/p/CDbcc1LpVMp/?igsh=MnB0NThtaTRzYmZp"
@@ -92,23 +79,26 @@ export default function About({ sectionRef }) {
                   rel="noopener noreferrer"
                   className="photo-ig-link"
                 >
-                  Instagram ↗
+                  View on Instagram ↗
                 </a>
               </div>
-              <div className="photo-embed-wrap">
-                <iframe
-                  src="https://www.instagram.com/p/CDbcc1LpVMp/embed/captioned/"
-                  className="photo-embed"
-                  frameBorder="0"
-                  scrolling="no"
-                  allowTransparency="true"
-                  title="Conceptual photography by Chinagorom"
-                />
+              <div className="photo-polaroid">
+                <div className="photo-embed-wrap">
+                  <iframe
+                    src="https://www.instagram.com/p/CDbcc1LpVMp/embed/"
+                    className="photo-embed"
+                    frameBorder="0"
+                    scrolling="no"
+                    allowTransparency="true"
+                    title="Conceptual photography by Chinagorom"
+                  />
+                </div>
+                <div className="photo-polaroid-caption">conceptual · Lagos</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

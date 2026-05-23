@@ -2,14 +2,14 @@ import { CV } from "../data/cv.js";
 
 export default function Skills({ sectionRef, skillRef, skillsVis }) {
   return (
-    <div ref={sectionRef} className="skills-wrap">
+    <section ref={sectionRef} className="skills-wrap" aria-label="Skills">
       <div className="skills-inner" ref={skillRef}>
         <div className="skills-top">
           <div className="reveal">
             <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(250,250,248,0.35)", marginBottom: "0.75rem" }}>
               03 · Skills
             </div>
-            <div className="skills-sec-title">My craft,<br />by the<br />numbers.</div>
+            <h2 className="skills-sec-title">My craft,<br />by the<br />numbers.</h2>
           </div>
           <div className="skill-rows reveal" style={{ transitionDelay: "0.15s" }}>
             {CV.skills.map((s, i) => (
@@ -35,6 +35,6 @@ export default function Skills({ sectionRef, skillRef, skillsVis }) {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

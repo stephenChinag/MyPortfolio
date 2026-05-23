@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Update sitemap URL to your live domain
+Sitemap: https://chinagorom.dev/sitemap.xml
