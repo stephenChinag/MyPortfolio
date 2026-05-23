@@ -1,6 +1,7 @@
 export const CV = {
   name: "Chinagorom",
   surname: "Owoamanam",
+  initials: "CO",
   title: "Senior Frontend Engineer",
   email: "stephenchinag@gmail.com",
   phone: "+234 916 077 4463",
