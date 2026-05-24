@@ -5,7 +5,7 @@ export const CV = {
   title: "Senior Frontend Engineer",
   email: "stephenchinag@gmail.com",
   phone: "+234 916 077 4463",
-  location: "Lagos, Nigeria",
+  location: "Open to relocate · Remote",
   taglines: [
     "Pixel-perfect interfaces.",
     "Scalable systems.",
@@ -34,7 +34,7 @@ export const CV = {
     {
       company: "Kuda",
       role: "Frontend Web Engineer",
-      period: "Jul 2025 to Present",
+      period: "Till Present",
       location: "Nigeria",
       tag: "FinTech",
       bullets: [
@@ -47,7 +47,7 @@ export const CV = {
     {
       company: "Market Master USA",
       role: "Frontend Engineer (Contract)",
-      period: "Aug 2024 to Present",
+      period: "12 months · Contract",
       location: "Maryland, USA · Remote",
       tag: "Video Tech",
       bullets: [
@@ -60,7 +60,7 @@ export const CV = {
     {
       company: "FARU",
       role: "Senior Frontend Engineer (Contract)",
-      period: "Jul 2025",
+      period: "8 months · Contract",
       location: "Remote",
       tag: "FinTech",
       bullets: [
@@ -73,7 +73,7 @@ export const CV = {
     {
       company: "Holmen Consulting",
       role: "Senior Frontend Engineer",
-      period: "Jun 2023 to Jun 2025",
+      period: "2.5 yrs",
       location: "Nigeria",
       tag: "Enterprise",
       bullets: [
@@ -86,7 +86,7 @@ export const CV = {
     {
       company: "Algorism Limited",
       role: "React Developer",
-      period: "Feb 2021 to Feb 2023",
+      period: "3 yrs",
       location: "Lagos, Nigeria",
       tag: "Startup",
       bullets: [

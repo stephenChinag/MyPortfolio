@@ -5,6 +5,7 @@ import { chipColor } from "./utils/chipColor.js";
 import { CV } from "./data/cv.js";
 import BotanicalPanel from "./components/BotanicalPanel.jsx";
 import BackgroundText from "./components/BackgroundText.jsx";
+import Splash from "./components/Splash.jsx";
 import DarkToggle from "./components/DarkToggle.jsx";
 import Hero from "./components/Hero.jsx";
 import Marquee from "./components/Marquee.jsx";
@@ -40,6 +41,10 @@ export default function App() {
   const [formError, setFormError] = useState(false);
   const [dark, setDark] = useState(false);
   const [ripples, setRipples] = useState([]);
+  const [leaves, setLeaves] = useState([]);
+  const [showSplash, setShowSplash] = useState(
+    () => !sessionStorage.getItem("ch_visited"),
+  );
   const refs = useRef({});
   const cursorRef = useRef(null);
 
@@ -72,7 +77,6 @@ export default function App() {
     window.addEventListener("mousemove", move);
     return () => window.removeEventListener("mousemove", move);
   }, []);
-
 
   // Scroll reveal
   useEffect(() => {
@@ -140,58 +144,102 @@ export default function App() {
     const id = Date.now() + Math.random();
     setRipples((r) => [...r, { id, x: e.clientX, y: e.clientY }]);
     setTimeout(() => setRipples((r) => r.filter((rip) => rip.id !== id)), 750);
+
+    const count = 5 + Math.floor(Math.random() * 4);
+    const newLeaves = Array.from({ length: count }, (_, i) => ({
+      id: id + i + 1,
+      x: e.clientX + (Math.random() - 0.5) * 40,
+      y: e.clientY + (Math.random() - 0.5) * 20,
+      shape: Math.floor(Math.random() * 4),
+      rot: Math.random() * 360,
+      dx: (Math.random() - 0.5) * 120,
+      dur: 900 + Math.random() * 600,
+    }));
+    setLeaves((l) => [...l, ...newLeaves]);
+    setTimeout(
+      () =>
+        setLeaves((l) => l.filter((lf) => !newLeaves.some((n) => n.id === lf.id))),
+      1600,
+    );
   };
 
   return (
-    <div className={`root-wrap${dark ? " dark" : ""}`} onClick={handleClick}>
-      <div className="scroll-bar" style={{ width: `${scrollPct}%` }} />
-      <div className="bg-glow">
-        <div className="glow-orb glow-orb-1" />
-        <div className="glow-orb glow-orb-2" />
-        <div className="glow-orb glow-orb-3" />
-        <div className="glow-orb glow-orb-4" />
-        <div className="glow-orb glow-orb-5" />
+    <>
+      {showSplash && (
+        <Splash
+          onDone={() => {
+            sessionStorage.setItem("ch_visited", "1");
+            setShowSplash(false);
+          }}
+        />
+      )}
+      <div className={`root-wrap${dark ? " dark" : ""}`} onClick={handleClick}>
+        <div className="scroll-bar" style={{ width: `${scrollPct}%` }} />
+        <div className="bg-glow">
+          <div className="glow-orb glow-orb-1" />
+          <div className="glow-orb glow-orb-2" />
+          <div className="glow-orb glow-orb-3" />
+          <div className="glow-orb glow-orb-4" />
+          <div className="glow-orb glow-orb-5" />
+        </div>
+        <div className="bg-grid" />
+        <BackgroundText />
+        <div className="bg-art">
+          <BotanicalPanel />
+          <BotanicalPanel mirrored />
+        </div>
+        {ripples.map((r) => (
+          <div
+            key={r.id}
+            className="click-ripple"
+            style={{ left: r.x, top: r.y }}
+          />
+        ))}
+        {leaves.map((lf) => (
+          <div
+            key={lf.id}
+            className={`click-leaf click-leaf--${lf.shape}`}
+            style={{
+              left: lf.x,
+              top: lf.y,
+              "--leaf-rot": `${lf.rot}deg`,
+              "--leaf-dx": `${lf.dx}px`,
+              "--leaf-dur": `${lf.dur}ms`,
+            }}
+          />
+        ))}
+        <div className="cursor" ref={cursorRef} />
+        <DarkToggle dark={dark} setDark={setDark} />
+        <main>
+          <Hero
+            typed={typed}
+            go={go}
+            sectionRef={(el) => (refs.current["home"] = el)}
+          />
+          <Marquee />
+          <About sectionRef={(el) => (refs.current["about"] = el)} />
+          <Experience
+            sectionRef={(el) => (refs.current["work"] = el)}
+            chipColor={getChipColor}
+          />
+          <Projects
+            sectionRef={(el) => (refs.current["projects"] = el)}
+            chipColor={getChipColor}
+          />
+          <Skills sectionRef={(el) => (refs.current["skills"] = el)} />
+          <Contact sectionRef={(el) => (refs.current["contact"] = el)} />
+          <HireForm
+            sectionRef={(el) => (refs.current["hire"] = el)}
+            form={form}
+            setForm={setForm}
+            formSent={formSent}
+            formLoading={formLoading}
+            formError={formError}
+            onSubmit={handleHire}
+          />
+        </main>
+        <Footer />
       </div>
-      <div className="bg-grid" />
-      <BackgroundText />
-      <div className="bg-art">
-        <BotanicalPanel />
-        <BotanicalPanel mirrored />
-      </div>
-      {ripples.map((r) => (
-        <div key={r.id} className="click-ripple" style={{ left: r.x, top: r.y }} />
-      ))}
-      <div className="cursor" ref={cursorRef} />
-      <DarkToggle dark={dark} setDark={setDark} />
-      <main>
-        <Hero
-          typed={typed}
-          go={go}
-          sectionRef={(el) => (refs.current["home"] = el)}
-        />
-        <Marquee />
-        <About sectionRef={(el) => (refs.current["about"] = el)} />
-        <Experience
-          sectionRef={(el) => (refs.current["work"] = el)}
-          chipColor={getChipColor}
-        />
-        <Projects
-          sectionRef={(el) => (refs.current["projects"] = el)}
-          chipColor={getChipColor}
-        />
-        <Skills sectionRef={(el) => (refs.current["skills"] = el)} />
-        <Contact sectionRef={(el) => (refs.current["contact"] = el)} />
-        <HireForm
-          sectionRef={(el) => (refs.current["hire"] = el)}
-          form={form}
-          setForm={setForm}
-          formSent={formSent}
-          formLoading={formLoading}
-          formError={formError}
-          onSubmit={handleHire}
-        />
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 }

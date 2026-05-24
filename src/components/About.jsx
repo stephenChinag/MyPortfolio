@@ -20,10 +20,10 @@ export default function About({ sectionRef }) {
             style={{ transitionDelay: "0.1s" }}
           >
             <p>
-              I'm a <strong>Senior Frontend Engineer</strong> based in Lagos,
-              Nigeria with a deep passion for turning complex product
-              requirements into clean, fast, and beautiful user interfaces. I
-              live at the intersection of design and engineering.
+              I'm a <strong>Senior Frontend Engineer</strong> open to remote
+              work and relocation, with a deep passion for turning complex
+              product requirements into clean, fast, and beautiful user
+              interfaces. I live at the intersection of design and engineering.
             </p>
             <p>
               From <strong>fintech dashboards</strong> at Holmen Consulting to{" "}
