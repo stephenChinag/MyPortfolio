@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Update sitemap URL to your live domain
-Sitemap: https://chinagorom.dev/sitemap.xml
+Sitemap: https://chinagorom.netlify.app/sitemap.xml
