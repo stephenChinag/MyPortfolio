@@ -70,6 +70,22 @@ html, html * { cursor: none; }
 }
 .dm-thumb.on { left: calc(100% - 22px); }
 
+/* ── SCROLL TO TOP ── */
+.scroll-top-btn {
+  position: fixed; bottom: 2rem; right: 1.5rem; z-index: 300;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--fg); color: var(--bg);
+  border: none; cursor: pointer;
+  font-size: 18px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  opacity: 0; pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.3s, transform 0.3s, background 0.3s;
+}
+.scroll-top-btn.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.scroll-top-btn:hover { background: var(--fg2); }
+
 /* ── LAYOUT ── */
 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 2.5rem; }
 .section { padding-top: 120px; padding-bottom: 100px; }

@@ -210,6 +210,13 @@ export default function App() {
         ))}
         <div className="cursor" ref={cursorRef} />
         <DarkToggle dark={dark} setDark={setDark} />
+        <button
+          className={`scroll-top-btn${scrollPct >= 85 ? " visible" : ""}`}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label="Scroll to top"
+        >
+          ↑
+        </button>
         <main>
           <Hero
             typed={typed}
