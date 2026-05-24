@@ -25,11 +25,12 @@ export default function Hero({ typed, go, sectionRef }) {
           </button>
           <a
             href="https://drive.google.com/uc?export=download&id=18BqXsuFQWX6qZ43uhxWztHfm4I3x9Qsv"
-            className="btn-outline"
+            className="btn-cv"
             target="_blank"
             rel="noreferrer"
           >
-            ↓ Download CV
+            <span className="btn-cv-arrow">↓</span>
+            <span>Download CV</span>
           </a>
         </div>
       </div>

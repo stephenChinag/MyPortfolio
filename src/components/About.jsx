@@ -1,5 +1,3 @@
-import { CV } from "../data/cv.js";
-
 export default function About({ sectionRef }) {
   return (
     <section ref={sectionRef} className="wrap section" aria-label="About">
@@ -27,8 +25,7 @@ export default function About({ sectionRef }) {
             </p>
             <p>
               From <strong>fintech dashboards</strong> at Holmen Consulting to{" "}
-              <strong>neobanking apps</strong> at Kuda, from{" "}
-              <strong>real-time video platforms</strong> to{" "}
+              <strong>real-time video platforms</strong> at Market Master, to{" "}
               <strong>regulated trading interfaces</strong>. I've built
               products that millions of users trust.
             </p>
@@ -40,33 +37,8 @@ export default function About({ sectionRef }) {
           </div>
           <div className="about-cards">
             <div
-              className="about-card reveal"
-              style={{ transitionDelay: "0.15s" }}
-            >
-              <div>
-                <div className="about-card-label">Education</div>
-                <div className="about-card-val">
-                  BSc Computer Science · Federal University Birnin Kebbi
-                </div>
-              </div>
-              <div className="about-card-arrow">→</div>
-            </div>
-            {CV.certs.map((c, ci) => (
-              <div
-                className="about-card reveal"
-                key={c}
-                style={{ transitionDelay: `${(ci + 2) * 0.1}s` }}
-              >
-                <div>
-                  <div className="about-card-label">Certificate</div>
-                  <div className="about-card-val">{c}</div>
-                </div>
-                <div className="about-card-arrow">✓</div>
-              </div>
-            ))}
-            <div
               className="photo-showcase reveal"
-              style={{ transitionDelay: `${(CV.certs.length + 2) * 0.1}s` }}
+              style={{ transitionDelay: "0.15s" }}
             >
               <div className="photo-showcase-bar" />
               <div className="photo-showcase-body">
