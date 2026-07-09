@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   CalendarCheck, DoorOpen, ShieldCheck, MessageCircle, LineChart,
   ClipboardCheck, ArrowRight, Globe2, KeyRound, UtensilsCrossed,
-  Users, Lock, Percent, Smartphone, Waves, ChevronDown,
+  Users, Lock, Percent, Smartphone, Waves, ChevronDown, Menu, X,
   Star, CheckCircle, Clock, Award, Wifi, Coffee, Car, TreePine,
   Building2, FileText, Target, TrendingUp, Zap, BarChart3, Bell,
   CreditCard, MapPin, Shield,
@@ -18,7 +18,6 @@ const C = {
 
 const FONTS = "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap";
 
-// Nigerian/African hotel & landscape photos
 const IMG = {
   hero: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1800&q=85&auto=format&fit=crop",
   about: "https://images.unsplash.com/photo-1566073771259-470a39aade3a?w=900&q=80&auto=format&fit=crop",
@@ -72,14 +71,14 @@ const P = ({ children, dark, style }) => (
 );
 
 const Wrap = ({ children, style }) => (
-  <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 32px", ...style }}>{children}</div>
+  <div style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px", ...style }}>{children}</div>
 );
 
 const Bar = ({ color = C.brass, center }) => (
   <div style={{ width: 52, height: 3, background: color, marginBottom: 28, ...(center ? { margin: "0 auto 28px" } : {}) }} />
 );
 
-const Tag = ({ children, color = C.brass }) => (
+const RoomTag = ({ children, color = C.brass }) => (
   <span style={{
     fontFamily: "'Inter',sans-serif", fontSize: 11, fontWeight: 600,
     background: `${color}18`, color, border: `1px solid ${color}40`,
@@ -90,13 +89,19 @@ const Tag = ({ children, color = C.brass }) => (
 export default function OxbowProposal() {
   const [scrolled, setScrolled] = useState(false);
   const [activeRoom, setActiveRoom] = useState(0);
-  const [activeTab, setActiveTab] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
+
+  useEffect(() => {
+    if (menuOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
   const rooms = [
     {
@@ -198,19 +203,20 @@ export default function OxbowProposal() {
       {/* NAV */}
       <nav style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 200,
-        background: scrolled ? "rgba(15,31,22,0.97)" : "transparent",
-        backdropFilter: scrolled ? "blur(16px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none",
+        background: scrolled || menuOpen ? "rgba(15,31,22,0.97)" : "transparent",
+        backdropFilter: scrolled || menuOpen ? "blur(16px)" : "none",
+        borderBottom: scrolled || menuOpen ? "1px solid rgba(255,255,255,0.06)" : "none",
         transition: "all 0.3s ease",
       }}>
-        <Wrap style={{ height: 68, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 32px" }}>
+        <Wrap style={{ height: 68, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 24px" }}>
           <a href="#hero" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", cursor: "pointer" }}>
             <Mark size={24} />
-            <span style={{ fontFamily: "'Inter',sans-serif", fontSize: 11.5, letterSpacing: 2.5, color: C.onDarkSoft, textTransform: "uppercase", fontWeight: 600 }}>
+            <span className="olh-nav-brand">
               Oxbow Lake Hotel · Project Proposal
             </span>
           </a>
-          <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
+          {/* Desktop nav */}
+          <div className="olh-nav-links-desktop">
             {navLinks.map(l => (
               <a key={l.href} href={l.href} style={{
                 fontFamily: "'Inter',sans-serif", fontSize: 13, fontWeight: 500,
@@ -221,43 +227,57 @@ export default function OxbowProposal() {
               >{l.label}</a>
             ))}
           </div>
+          {/* Hamburger */}
+          <button className="olh-hamburger" onClick={() => setMenuOpen(o => !o)}
+            style={{ background: "none", border: "none", cursor: "pointer", padding: 8, color: C.onDark }}>
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </Wrap>
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div className="olh-mobile-menu">
+            {navLinks.map(l => (
+              <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)} style={{
+                fontFamily: "'Inter',sans-serif", fontSize: 16, fontWeight: 500,
+                color: C.onDark, textDecoration: "none", padding: "14px 0",
+                borderBottom: "1px solid rgba(255,255,255,0.08)", display: "block",
+              }}>{l.label}</a>
+            ))}
+          </div>
+        )}
       </nav>
 
       {/* HERO */}
       <section id="hero" style={{ position: "relative", minHeight: "100vh", overflow: "hidden" }}>
         <img src={IMG.hero} alt="Oxbow Lake Hotel" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(15,31,22,0.6) 0%, rgba(15,31,22,0.78) 50%, rgba(15,31,22,0.95) 100%)" }} />
-        <div style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "100vh", textAlign: "center", padding: "100px 32px 60px" }}>
-
+        <div style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "100vh", textAlign: "center", padding: "100px 24px 60px" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 32, background: "rgba(196,154,60,0.15)", border: "1px solid rgba(196,154,60,0.35)", borderRadius: 24, padding: "8px 20px" }}>
             <Building2 size={14} color={C.brass} />
-            <span style={{ fontFamily: "'Inter',sans-serif", fontSize: 11, letterSpacing: 3, color: C.brass, textTransform: "uppercase", fontWeight: 700 }}>Hotel Management System · Proposal 2026</span>
+            <span className="olh-hero-badge">Hotel Management System · Proposal 2026</span>
           </div>
-
-          <h1 style={{ fontFamily: "'Fraunces',serif", fontWeight: 300, fontSize: "clamp(48px, 9vw, 92px)", lineHeight: 1.06, color: C.onDark, margin: "0 0 12px", maxWidth: 820 }}>
+          <h1 style={{ fontFamily: "'Fraunces',serif", fontWeight: 300, fontSize: "clamp(40px, 9vw, 92px)", lineHeight: 1.06, color: C.onDark, margin: "0 0 12px", maxWidth: 820 }}>
             Oxbow Lake Hotel
           </h1>
-          <h2 style={{ fontFamily: "'Fraunces',serif", fontWeight: 300, fontSize: "clamp(22px, 4vw, 38px)", lineHeight: 1.2, color: C.brass, margin: "0 0 32px" }}>
+          <h2 style={{ fontFamily: "'Fraunces',serif", fontWeight: 300, fontSize: "clamp(18px, 4vw, 38px)", lineHeight: 1.2, color: C.brass, margin: "0 0 32px" }}>
             A complete digital management system
           </h2>
-          <P dark style={{ fontSize: 17, maxWidth: 580, margin: "0 auto 52px" }}>
+          <P dark style={{ fontSize: 16, maxWidth: 560, margin: "0 auto 48px" }}>
             A detailed proposal for transforming hotel operations through a single, integrated platform — covering bookings, front desk, accounting, guest experience and reporting.
           </P>
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", justifyContent: "center" }}>
+          <div className="olh-hero-btns">
             <a href="#problem" style={{
               display: "inline-flex", alignItems: "center", gap: 8, background: C.brass, color: "#fff",
-              textDecoration: "none", padding: "15px 36px", borderRadius: 8,
+              textDecoration: "none", padding: "15px 32px", borderRadius: 8,
               fontFamily: "'Inter',sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer",
             }}>Read the proposal <ArrowRight size={17} /></a>
             <a href="#timeline" style={{
               display: "inline-flex", alignItems: "center", gap: 8,
               background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.22)",
-              color: C.onDark, textDecoration: "none", padding: "15px 36px", borderRadius: 8,
+              color: C.onDark, textDecoration: "none", padding: "15px 32px", borderRadius: 8,
               fontFamily: "'Inter',sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer",
             }}>View timeline</a>
           </div>
-
           <div style={{ position: "absolute", bottom: 36, left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
             <span style={{ fontFamily: "'Inter',sans-serif", fontSize: 10, color: C.onDarkSoft, letterSpacing: 2, textTransform: "uppercase" }}>Scroll to explore</span>
             <ChevronDown size={18} color={C.brass} style={{ animation: "bounce 1.8s ease-in-out infinite" }} />
@@ -266,30 +286,29 @@ export default function OxbowProposal() {
       </section>
 
       {/* PROPOSAL OVERVIEW STRIP */}
-      <div style={{ background: C.green, padding: "0 32px" }}>
-        <Wrap style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", padding: "0 0" }}>
-          {[
-            { label: "Prepared for", value: "Oxbow Lake Hotel" },
-            { label: "Project type", value: "Hotel Management System" },
-            { label: "Timeline", value: "12 Weeks" },
-            { label: "Location", value: "Lagos, Nigeria" },
-            { label: "Date", value: "July 2026" },
-          ].map((s, i) => (
-            <div key={s.label} style={{
-              padding: "22px 0", flex: 1, textAlign: "center",
-              borderRight: i < 4 ? "1px solid rgba(255,255,255,0.12)" : "none",
-            }}>
-              <div style={{ fontFamily: "'Inter',sans-serif", fontSize: 10, color: "rgba(255,255,255,0.5)", letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 4 }}>{s.label}</div>
-              <div style={{ fontFamily: "'Fraunces',serif", fontSize: 16, color: "#fff", fontWeight: 400 }}>{s.value}</div>
-            </div>
-          ))}
+      <div style={{ background: C.green }}>
+        <Wrap>
+          <div className="olh-strip">
+            {[
+              { label: "Prepared for", value: "Oxbow Lake Hotel" },
+              { label: "Project type", value: "Hotel Management System" },
+              { label: "Timeline", value: "12 Weeks" },
+              { label: "Location", value: "Lagos, Nigeria" },
+              { label: "Date", value: "July 2026" },
+            ].map((s, i) => (
+              <div key={s.label} className="olh-strip-item" style={{ borderRight: i < 4 ? "1px solid rgba(255,255,255,0.12)" : "none" }}>
+                <div style={{ fontFamily: "'Inter',sans-serif", fontSize: 10, color: "rgba(255,255,255,0.5)", letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 4 }}>{s.label}</div>
+                <div style={{ fontFamily: "'Fraunces',serif", fontSize: 15, color: "#fff", fontWeight: 400 }}>{s.value}</div>
+              </div>
+            ))}
+          </div>
         </Wrap>
       </div>
 
       {/* PROBLEM */}
-      <section id="problem" style={{ padding: "100px 32px", background: "#fff" }}>
+      <section id="problem" className="olh-section" style={{ background: "#fff" }}>
         <Wrap>
-          <div style={{ maxWidth: 760, marginBottom: 64 }}>
+          <div style={{ maxWidth: 760, marginBottom: 56 }}>
             <Kicker>The challenge</Kicker>
             <H size={44}>The problems we're solving</H>
             <Bar />
@@ -297,11 +316,11 @@ export default function OxbowProposal() {
               Oxbow Lake Hotel operates in one of Nigeria's most competitive hospitality markets. The current reliance on manual processes, WhatsApp bookings and spreadsheet accounting is creating real, measurable problems — problems that cost the hotel revenue, reputation and staff time every single day.
             </P>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginBottom: 64 }}>
+          <div className="olh-2col-grid" style={{ marginBottom: 56 }}>
             {problems.map(p => (
-              <div key={p.title} style={{ border: "1px solid #e8e0cc", borderLeft: `4px solid ${C.clay}`, borderRadius: 10, padding: "24px 24px" }}>
+              <div key={p.title} style={{ border: "1px solid #e8e0cc", borderLeft: `4px solid ${C.clay}`, borderRadius: 10, padding: "24px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
-                  <div style={{ width: 38, height: 38, borderRadius: 8, background: `${C.clay}18`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ width: 38, height: 38, borderRadius: 8, background: `${C.clay}18`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                     <p.icon size={18} color={C.clay} />
                   </div>
                   <div style={{ fontFamily: "'Fraunces',serif", fontSize: 17, color: C.text, fontWeight: 500 }}>{p.title}</div>
@@ -310,8 +329,8 @@ export default function OxbowProposal() {
               </div>
             ))}
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "center" }}>
-            <img src={IMG.about} alt="Hotel" style={{ width: "100%", height: 420, objectFit: "cover", borderRadius: 14 }} />
+          <div className="olh-2col-grid">
+            <img src={IMG.about} alt="Hotel" className="olh-about-img" style={{ width: "100%", objectFit: "cover", borderRadius: 14 }} />
             <div>
               <Kicker>Our answer</Kicker>
               <H size={32}>One system. Every department. All connected.</H>
@@ -332,7 +351,7 @@ export default function OxbowProposal() {
       </section>
 
       {/* HOTEL PHOTOS */}
-      <section style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", height: 360 }}>
+      <section className="olh-photo-strip">
         {[IMG.pool, IMG.dining, IMG.spa].map((src, i) => (
           <div key={i} style={{ position: "relative", overflow: "hidden" }}>
             <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.6s ease" }}
@@ -348,41 +367,41 @@ export default function OxbowProposal() {
       </section>
 
       {/* ROOMS */}
-      <section id="rooms" style={{ padding: "100px 32px", background: C.cream }}>
+      <section id="rooms" className="olh-section" style={{ background: C.cream }}>
         <Wrap>
-          <div style={{ textAlign: "center", marginBottom: 52 }}>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
             <Kicker>Accommodation</Kicker>
             <H>Rooms we'll be managing</H>
             <Bar center />
             <P style={{ maxWidth: 520, margin: "0 auto" }}>The system will handle booking, pricing, housekeeping and billing for all three room categories — with individual rate management and availability controls per room type.</P>
           </div>
-          <div style={{ display: "flex", gap: 12, justifyContent: "center", marginBottom: 36 }}>
+          <div className="olh-room-tabs">
             {rooms.map((r, i) => (
               <button key={r.name} onClick={() => setActiveRoom(i)} style={{
                 fontFamily: "'Inter',sans-serif", fontSize: 13, fontWeight: 600,
-                padding: "11px 26px", borderRadius: 8, cursor: "pointer",
+                padding: "11px 22px", borderRadius: 8, cursor: "pointer",
                 border: `1px solid ${i === activeRoom ? C.brass : "#d4c8a8"}`,
                 background: i === activeRoom ? C.brass : "transparent",
                 color: i === activeRoom ? "#fff" : C.textSoft, transition: "all 0.2s",
               }}>{r.name}</button>
             ))}
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1.3fr 1fr", borderRadius: 16, overflow: "hidden", boxShadow: "0 24px 64px rgba(15,31,22,0.16)" }}>
+          <div className="olh-room-card" style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 24px 64px rgba(15,31,22,0.16)" }}>
             <div style={{ position: "relative" }}>
-              <img src={rooms[activeRoom].img} alt={rooms[activeRoom].name} style={{ width: "100%", height: 520, objectFit: "cover", display: "block" }} />
+              <img src={rooms[activeRoom].img} alt={rooms[activeRoom].name} className="olh-room-img" style={{ width: "100%", objectFit: "cover", display: "block" }} />
               <div style={{ position: "absolute", top: 20, left: 20 }}>
-                <Tag>{rooms[activeRoom].tag}</Tag>
+                <RoomTag>{rooms[activeRoom].tag}</RoomTag>
               </div>
             </div>
-            <div style={{ background: "#fff", padding: "52px 44px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            <div className="olh-room-info" style={{ background: "#fff", display: "flex", flexDirection: "column", justifyContent: "center" }}>
               <div style={{ fontFamily: "'Inter',sans-serif", fontSize: 10, letterSpacing: 3, color: C.clay, textTransform: "uppercase", fontWeight: 700, marginBottom: 14 }}>Room Category</div>
               <H size={28} style={{ marginBottom: 6 }}>{rooms[activeRoom].name}</H>
-              <div style={{ fontFamily: "'Fraunces',serif", fontSize: 30, color: C.brass, marginBottom: 20 }}>
+              <div style={{ fontFamily: "'Fraunces',serif", fontSize: 28, color: C.brass, marginBottom: 20 }}>
                 {rooms[activeRoom].price}
                 <span style={{ fontSize: 14, color: C.textSoft, fontFamily: "'Inter',sans-serif" }}> / night</span>
               </div>
               <P style={{ marginBottom: 24, fontSize: 14 }}>{rooms[activeRoom].desc}</P>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 32 }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 28 }}>
                 {rooms[activeRoom].perks.map(p => (
                   <span key={p} style={{
                     background: C.creamSoft, border: "1px solid #ddd4b8",
@@ -403,9 +422,9 @@ export default function OxbowProposal() {
       </section>
 
       {/* SOLUTION / FEATURES */}
-      <section id="solution" style={{ padding: "100px 32px", background: "#fff" }}>
+      <section id="solution" className="olh-section" style={{ background: "#fff" }}>
         <Wrap>
-          <div style={{ textAlign: "center", marginBottom: 64 }}>
+          <div style={{ textAlign: "center", marginBottom: 56 }}>
             <Kicker>The system</Kicker>
             <H>Six core modules</H>
             <Bar center />
@@ -413,7 +432,7 @@ export default function OxbowProposal() {
               Every module is designed to work independently if needed but performs best as an integrated system — where a booking updates the front desk, which triggers housekeeping, which posts to accounting automatically.
             </P>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }}>
+          <div className="olh-3col-grid">
             {coreFeatures.map((f, i) => (
               <div key={f.title} style={{ background: C.cream, border: "1px solid #e4dabd", borderTop: `3px solid ${C.brass}`, borderRadius: 12, padding: "28px 24px" }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18 }}>
@@ -431,24 +450,24 @@ export default function OxbowProposal() {
       </section>
 
       {/* EXTRAS + GALLERY */}
-      <section style={{ padding: "100px 32px", background: C.creamSoft }}>
+      <section className="olh-section" style={{ background: C.creamSoft }}>
         <Wrap>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 72, alignItems: "start" }}>
-            <div style={{ position: "sticky", top: 96 }}>
+          <div className="olh-extras-grid">
+            <div className="olh-sticky">
               <Kicker>Beyond the basics</Kicker>
               <H size={34}>Extended capabilities</H>
               <Bar />
               <P>These eight additional features are included in the proposal because they directly impact revenue, guest experience and operational efficiency — not as add-ons, but as part of the core delivery.</P>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 28 }}>
-                <img src={IMG.exterior} alt="Hotel exterior" style={{ width: "100%", height: 180, objectFit: "cover", borderRadius: 10 }} />
-                <img src={IMG.lobby} alt="Hotel lobby" style={{ width: "100%", height: 180, objectFit: "cover", borderRadius: 10 }} />
-                <img src={IMG.g1} alt="" style={{ width: "100%", height: 180, objectFit: "cover", borderRadius: 10 }} />
-                <img src={IMG.g2} alt="" style={{ width: "100%", height: 180, objectFit: "cover", borderRadius: 10 }} />
+              <div className="olh-gallery-grid">
+                <img src={IMG.exterior} alt="Hotel exterior" style={{ width: "100%", height: 160, objectFit: "cover", borderRadius: 10 }} />
+                <img src={IMG.lobby} alt="Hotel lobby" style={{ width: "100%", height: 160, objectFit: "cover", borderRadius: 10 }} />
+                <img src={IMG.g1} alt="" style={{ width: "100%", height: 160, objectFit: "cover", borderRadius: 10 }} />
+                <img src={IMG.g2} alt="" style={{ width: "100%", height: 160, objectFit: "cover", borderRadius: 10 }} />
               </div>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-              {extras.map((f, i) => (
-                <div key={f.title} style={{ display: "flex", gap: 16, background: "#fff", border: "1px solid #e4dabd", borderRadius: 10, padding: "20px 20px", alignItems: "flex-start" }}>
+              {extras.map((f) => (
+                <div key={f.title} style={{ display: "flex", gap: 16, background: "#fff", border: "1px solid #e4dabd", borderRadius: 10, padding: "20px", alignItems: "flex-start" }}>
                   <div style={{ width: 40, height: 40, minWidth: 40, borderRadius: 8, background: C.sage, display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <f.icon size={19} color="#fff" />
                   </div>
@@ -464,20 +483,17 @@ export default function OxbowProposal() {
       </section>
 
       {/* TECH */}
-      <section style={{
-        padding: "100px 32px", position: "relative", overflow: "hidden",
-        background: `linear-gradient(155deg, ${C.ink} 0%, ${C.inkSoft} 100%)`,
-      }}>
+      <section className="olh-section" style={{ position: "relative", overflow: "hidden", background: `linear-gradient(155deg, ${C.ink} 0%, ${C.inkSoft} 100%)` }}>
         <Wrap>
-          <div style={{ textAlign: "center", marginBottom: 64 }}>
+          <div style={{ textAlign: "center", marginBottom: 56 }}>
             <Kicker dark>Technical approach</Kicker>
             <H dark>How it will be built</H>
             <Bar color={C.brass} />
             <P dark style={{ maxWidth: 520, margin: "0 auto" }}>Modern, scalable technology chosen for reliability, performance and long-term maintainability — not the cheapest option, but the right one.</P>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20, marginBottom: 56 }}>
+          <div className="olh-2col-grid" style={{ marginBottom: 40 }}>
             {techStack.map((f, i) => (
-              <div key={f.label} style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, padding: "28px 28px" }}>
+              <div key={f.label} style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, padding: "28px" }}>
                 <div style={{ fontFamily: "'Inter',sans-serif", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", color: C.brass, fontWeight: 700, marginBottom: 10 }}>Layer {i + 1}</div>
                 <div style={{ fontFamily: "'Fraunces',serif", fontSize: 20, color: C.onDark, marginBottom: 6 }}>{f.label}</div>
                 <div style={{ fontFamily: "'Inter',sans-serif", fontSize: 12, color: C.brass, marginBottom: 14, fontWeight: 600 }}>{f.sub}</div>
@@ -485,12 +501,12 @@ export default function OxbowProposal() {
               </div>
             ))}
           </div>
-          <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, padding: "28px 32px" }}>
+          <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, padding: "24px 28px" }}>
             <div style={{ fontFamily: "'Inter',sans-serif", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", color: C.brass, fontWeight: 700, marginBottom: 20 }}>Data flow</div>
-            <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+            <div className="olh-dataflow">
               {["Guest Booking", "Payment Gateway", "Reservation Engine", "Front Desk", "Housekeeping", "Accounting", "Reporting"].map((s, i, arr) => (
                 <React.Fragment key={s}>
-                  <div style={{ background: i === 3 ? C.brass : "rgba(255,255,255,0.08)", borderRadius: 8, padding: "12px 18px", textAlign: "center" }}>
+                  <div style={{ background: i === 3 ? C.brass : "rgba(255,255,255,0.08)", borderRadius: 8, padding: "10px 16px", textAlign: "center" }}>
                     <div style={{ fontFamily: "'Inter',sans-serif", fontSize: 12, fontWeight: 600, color: C.onDark, whiteSpace: "nowrap" }}>{s}</div>
                   </div>
                   {i < arr.length - 1 && <ArrowRight size={14} color={C.brass} style={{ flexShrink: 0 }} />}
@@ -502,15 +518,15 @@ export default function OxbowProposal() {
       </section>
 
       {/* TIMELINE */}
-      <section id="timeline" style={{ padding: "100px 32px", background: "#fff" }}>
+      <section id="timeline" className="olh-section" style={{ background: "#fff" }}>
         <Wrap>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 72, alignItems: "start" }}>
-            <div style={{ position: "sticky", top: 96 }}>
+          <div className="olh-timeline-grid">
+            <div className="olh-sticky">
               <Kicker>Delivery plan</Kicker>
               <H size={36}>12 weeks from kickoff to launch</H>
               <Bar />
               <P>Six clear phases. Working software delivered at the end of each one. You review, test and approve before we move forward — no surprises, no delays that catch you off guard.</P>
-              <div style={{ background: C.creamSoft, borderRadius: 12, padding: "24px 24px", marginTop: 32, border: "1px solid #e4dabd" }}>
+              <div style={{ background: C.creamSoft, borderRadius: 12, padding: "24px", marginTop: 32, border: "1px solid #e4dabd" }}>
                 <div style={{ fontFamily: "'Inter',sans-serif", fontSize: 11, fontWeight: 700, color: C.clay, textTransform: "uppercase", letterSpacing: 1, marginBottom: 14 }}>What you get</div>
                 {deliverables.map(d => (
                   <div key={d} style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 10 }}>
@@ -522,17 +538,17 @@ export default function OxbowProposal() {
             </div>
             <div>
               {timeline.map((s, i) => (
-                <div key={s.t} style={{ display: "flex", gap: 24, marginBottom: 8 }}>
+                <div key={s.t} style={{ display: "flex", gap: 20, marginBottom: 8 }}>
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                     <div style={{ width: 44, height: 44, minWidth: 44, borderRadius: "50%", background: C.ink, display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1 }}>
                       <s.icon size={20} color={C.brass} />
                     </div>
                     {i < timeline.length - 1 && <div style={{ width: 2, flex: 1, background: "#e4dabd", margin: "4px 0", minHeight: 24 }} />}
                   </div>
-                  <div style={{ background: C.cream, border: "1px solid #e4dabd", borderRadius: 12, padding: "22px 24px", marginBottom: 16, flex: 1 }}>
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
-                      <div style={{ fontFamily: "'Fraunces',serif", fontSize: 17, color: C.text, fontWeight: 500 }}>{s.t}</div>
-                      <span style={{ fontFamily: "'Inter',sans-serif", fontSize: 11, color: C.brass, fontWeight: 700, background: `${C.brass}18`, padding: "3px 12px", borderRadius: 10 }}>{s.w}</span>
+                  <div style={{ background: C.cream, border: "1px solid #e4dabd", borderRadius: 12, padding: "20px 22px", marginBottom: 16, flex: 1 }}>
+                    <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 8, marginBottom: 8, flexWrap: "wrap" }}>
+                      <div style={{ fontFamily: "'Fraunces',serif", fontSize: 16, color: C.text, fontWeight: 500 }}>{s.t}</div>
+                      <span style={{ fontFamily: "'Inter',sans-serif", fontSize: 11, color: C.brass, fontWeight: 700, background: `${C.brass}18`, padding: "3px 12px", borderRadius: 10, flexShrink: 0 }}>{s.w}</span>
                     </div>
                     <div style={{ fontFamily: "'Inter',sans-serif", fontSize: 13.5, color: C.textSoft, lineHeight: 1.7 }}>{s.d}</div>
                   </div>
@@ -544,14 +560,14 @@ export default function OxbowProposal() {
       </section>
 
       {/* WHY US */}
-      <section style={{ padding: "100px 32px", background: C.cream }}>
+      <section className="olh-section" style={{ background: C.cream }}>
         <Wrap>
-          <div style={{ textAlign: "center", marginBottom: 60 }}>
+          <div style={{ textAlign: "center", marginBottom: 52 }}>
             <Kicker>Partnership</Kicker>
             <H>Why work with us</H>
             <Bar center />
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+          <div className="olh-3col-grid">
             {whyUs.map(w => (
               <div key={w.a} style={{ background: "#fff", border: "1px solid #e4dabd", borderRadius: 12, padding: "28px 24px" }}>
                 <div style={{ width: 44, height: 44, borderRadius: 10, background: C.ink, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
@@ -566,15 +582,15 @@ export default function OxbowProposal() {
       </section>
 
       {/* INVESTMENT */}
-      <section id="investment" style={{ padding: "100px 32px", background: "#fff" }}>
+      <section id="investment" className="olh-section" style={{ background: "#fff" }}>
         <Wrap>
-          <div style={{ textAlign: "center", marginBottom: 60 }}>
+          <div style={{ textAlign: "center", marginBottom: 52 }}>
             <Kicker>Investment</Kicker>
             <H>What's included</H>
             <Bar center />
             <P style={{ maxWidth: 520, margin: "0 auto" }}>One engagement. Everything listed above. No hidden costs, no per-module pricing, no surprise invoices after go-live.</P>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24 }}>
+          <div className="olh-3col-grid">
             {[
               { tier: "System Build", items: ["All 6 core modules", "8 extended features", "Custom branding & UI", "Nigerian market configuration", "Paystack & Flutterwave integration", "OTA channel manager"] },
               { tier: "Delivery", items: ["12-week delivery timeline", "Phased, reviewable delivery", "UAT with your team", "Data migration from existing records", "Go-live with on-site support", "Dedicated project manager"] },
@@ -584,7 +600,7 @@ export default function OxbowProposal() {
                 <div style={{ background: C.ink, padding: "20px 24px" }}>
                   <div style={{ fontFamily: "'Fraunces',serif", fontSize: 20, color: C.onDark }}>{t.tier}</div>
                 </div>
-                <div style={{ padding: "24px 24px" }}>
+                <div style={{ padding: "24px" }}>
                   {t.items.map(item => (
                     <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 12 }}>
                       <CheckCircle size={14} color={C.brass} style={{ flexShrink: 0, marginTop: 3 }} />
@@ -595,8 +611,8 @@ export default function OxbowProposal() {
               </div>
             ))}
           </div>
-          <div style={{ marginTop: 32, background: `${C.green}12`, border: `1px solid ${C.green}30`, borderRadius: 12, padding: "24px 32px", display: "flex", alignItems: "center", gap: 20 }}>
-            <TrendingUp size={28} color={C.green} style={{ flexShrink: 0 }} />
+          <div style={{ marginTop: 28, background: `${C.green}12`, border: `1px solid ${C.green}30`, borderRadius: 12, padding: "24px 28px", display: "flex", alignItems: "flex-start", gap: 20 }}>
+            <TrendingUp size={28} color={C.green} style={{ flexShrink: 0, marginTop: 2 }} />
             <div>
               <div style={{ fontFamily: "'Fraunces',serif", fontSize: 18, color: C.text, marginBottom: 4 }}>Return on investment</div>
               <div style={{ fontFamily: "'Inter',sans-serif", fontSize: 13.5, color: C.textSoft, lineHeight: 1.65 }}>
@@ -608,21 +624,21 @@ export default function OxbowProposal() {
       </section>
 
       {/* NEXT STEPS */}
-      <section style={{ padding: "100px 32px", background: C.creamSoft }}>
+      <section className="olh-section" style={{ background: C.creamSoft }}>
         <Wrap>
-          <div style={{ textAlign: "center", marginBottom: 56 }}>
+          <div style={{ textAlign: "center", marginBottom: 52 }}>
             <Kicker>Next steps</Kicker>
             <H>How we move forward</H>
             <Bar center />
           </div>
-          <div style={{ display: "flex", gap: 0, maxWidth: 860, margin: "0 auto" }}>
+          <div className="olh-next-steps">
             {[
               { n: "01", t: "Review this proposal", d: "Share it with your team. We're available to answer any questions or clarify any aspect of the scope." },
               { n: "02", t: "Agree & sign off", d: "Once you're ready to proceed, we confirm the scope, timeline and start date in writing." },
               { n: "03", t: "Discovery workshop", d: "A 2-day session with your team to map every workflow, room type, rate plan and staff role before we begin building." },
               { n: "04", t: "Build begins", d: "Week 1 of the 12-week delivery plan starts. You have visibility into every phase from day one." },
             ].map((s, i, arr) => (
-              <div key={s.n} style={{ flex: 1, padding: "0 24px", borderRight: i < arr.length - 1 ? "1px solid #d8ceb0" : "none", textAlign: "center" }}>
+              <div key={s.n} className="olh-next-step" style={{ borderRight: i < arr.length - 1 ? "1px solid #d8ceb0" : "none" }}>
                 <div style={{ fontFamily: "'Fraunces',serif", fontSize: 36, color: C.brass, marginBottom: 12 }}>{s.n}</div>
                 <div style={{ fontFamily: "'Fraunces',serif", fontSize: 16, color: C.text, marginBottom: 10 }}>{s.t}</div>
                 <div style={{ fontFamily: "'Inter',sans-serif", fontSize: 13, color: C.textSoft, lineHeight: 1.65 }}>{s.d}</div>
@@ -633,24 +649,175 @@ export default function OxbowProposal() {
       </section>
 
       {/* FOOTER */}
-      <div style={{ background: `linear-gradient(155deg, ${C.ink} 0%, ${C.inkSoft} 100%)`, padding: "40px 32px" }}>
-        <Wrap style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <Mark size={22} />
-            <span style={{ fontFamily: "'Inter',sans-serif", fontSize: 11, letterSpacing: 2.5, color: C.onDarkSoft, textTransform: "uppercase" }}>Oxbow Lake Hotel · Project Proposal</span>
+      <div style={{ background: `linear-gradient(155deg, ${C.ink} 0%, ${C.inkSoft} 100%)`, padding: "36px 24px" }}>
+        <Wrap>
+          <div className="olh-footer-inner">
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <Mark size={22} />
+              <span style={{ fontFamily: "'Inter',sans-serif", fontSize: 11, letterSpacing: 2.5, color: C.onDarkSoft, textTransform: "uppercase" }}>Oxbow Lake Hotel · Project Proposal</span>
+            </div>
+            <span style={{ fontFamily: "'Fraunces',serif", fontSize: 13, color: C.onDarkSoft, fontStyle: "italic" }}>Prepared with care · Lagos, Nigeria · July 2026</span>
           </div>
-          <span style={{ fontFamily: "'Fraunces',serif", fontSize: 13, color: C.onDarkSoft, fontStyle: "italic" }}>Prepared with care · Lagos, Nigeria · July 2026</span>
         </Wrap>
       </div>
 
       <style>{`
-        * { box-sizing: border-box; }
+        *, *::before, *::after { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         html, html *, body { cursor: default !important; margin: 0; }
         a, button { cursor: pointer !important; }
         @keyframes bounce {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(8px); }
+        }
+
+        /* NAV */
+        .olh-nav-brand {
+          font-family: 'Inter', sans-serif; font-size: 11.5px; letter-spacing: 2.5px;
+          color: #b8c8ae; text-transform: uppercase; font-weight: 600;
+        }
+        .olh-nav-links-desktop {
+          display: flex; align-items: center; gap: 32px;
+        }
+        .olh-hamburger { display: none !important; }
+        .olh-mobile-menu {
+          padding: 12px 24px 24px; display: flex; flex-direction: column;
+        }
+        .olh-hero-badge {
+          font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 3px;
+          color: #c49a3c; text-transform: uppercase; font-weight: 700;
+        }
+        .olh-hero-btns {
+          display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+        }
+
+        /* SECTIONS */
+        .olh-section { padding: 100px 24px; }
+
+        /* STRIP */
+        .olh-strip {
+          display: flex; justify-content: space-between; flex-wrap: wrap;
+        }
+        .olh-strip-item {
+          padding: 22px 16px; flex: 1; text-align: center; min-width: 120px;
+        }
+
+        /* GRIDS */
+        .olh-2col-grid {
+          display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;
+        }
+        .olh-3col-grid {
+          display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+        }
+        .olh-about-img { height: 420px; }
+
+        /* PHOTO STRIP */
+        .olh-photo-strip {
+          display: grid; grid-template-columns: 1fr 1fr 1fr; height: 360px;
+        }
+
+        /* ROOMS */
+        .olh-room-tabs {
+          display: flex; gap: 12px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap;
+        }
+        .olh-room-card {
+          display: grid; grid-template-columns: 1.3fr 1fr;
+        }
+        .olh-room-img { height: 520px; }
+        .olh-room-info { padding: 48px 40px; }
+
+        /* EXTRAS */
+        .olh-extras-grid {
+          display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start;
+        }
+        .olh-gallery-grid {
+          display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 28px;
+        }
+        .olh-sticky { position: sticky; top: 96px; }
+
+        /* TECH DATAFLOW */
+        .olh-dataflow {
+          display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+        }
+
+        /* TIMELINE */
+        .olh-timeline-grid {
+          display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start;
+        }
+
+        /* NEXT STEPS */
+        .olh-next-steps {
+          display: flex; gap: 0; max-width: 860px; margin: 0 auto;
+        }
+        .olh-next-step {
+          flex: 1; padding: 0 24px; text-align: center;
+        }
+
+        /* FOOTER */
+        .olh-footer-inner {
+          display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+        }
+
+        /* ── TABLET ── */
+        @media (max-width: 900px) {
+          .olh-3col-grid { grid-template-columns: 1fr 1fr; }
+          .olh-timeline-grid { grid-template-columns: 1fr; gap: 48px; }
+          .olh-extras-grid { grid-template-columns: 1fr; gap: 48px; }
+          .olh-sticky { position: static; top: auto; }
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 768px) {
+          .olh-section { padding: 64px 20px; }
+
+          /* Nav */
+          .olh-nav-links-desktop { display: none !important; }
+          .olh-hamburger { display: flex !important; }
+          .olh-nav-brand { font-size: 9px; letter-spacing: 1.5px; }
+
+          /* Hero */
+          .olh-hero-badge { font-size: 9px; letter-spacing: 2px; }
+          .olh-hero-btns { flex-direction: column; align-items: center; }
+          .olh-hero-btns a { width: 100%; max-width: 300px; justify-content: center; }
+
+          /* Strip */
+          .olh-strip { flex-direction: column; }
+          .olh-strip-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 16px 0; }
+          .olh-strip-item:last-child { border-bottom: none; }
+
+          /* Grids → single col */
+          .olh-2col-grid { grid-template-columns: 1fr; gap: 24px; }
+          .olh-3col-grid { grid-template-columns: 1fr; }
+          .olh-about-img { height: 240px; }
+
+          /* Photo strip */
+          .olh-photo-strip { grid-template-columns: 1fr; height: auto; }
+          .olh-photo-strip > div { height: 220px; }
+
+          /* Rooms */
+          .olh-room-card { grid-template-columns: 1fr; }
+          .olh-room-img { height: 260px; }
+          .olh-room-info { padding: 28px 24px; }
+
+          /* Extras */
+          .olh-extras-grid { grid-template-columns: 1fr; gap: 40px; }
+          .olh-sticky { position: static; top: auto; }
+          .olh-gallery-grid { grid-template-columns: 1fr 1fr; }
+
+          /* Next steps */
+          .olh-next-steps { flex-direction: column; max-width: 100%; }
+          .olh-next-step { border-right: none !important; border-bottom: 1px solid #d8ceb0; padding: 0 0 28px; margin-bottom: 28px; }
+          .olh-next-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+          /* Footer */
+          .olh-footer-inner { flex-direction: column; text-align: center; align-items: center; }
+        }
+
+        /* ── SMALL PHONES ── */
+        @media (max-width: 480px) {
+          .olh-section { padding: 52px 16px; }
+          .olh-gallery-grid { grid-template-columns: 1fr; }
+          .olh-room-tabs button { font-size: 12px; padding: 9px 16px; }
         }
       `}</style>
     </div>
